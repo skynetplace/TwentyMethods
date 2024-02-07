@@ -18,10 +18,10 @@ public class Starter {
         System.out.println(TwentyMethods.getMaxInt(10, 15));
 
         System.out.println("\n\n3.1) Принимает 2 инта, а и б, возвращает большее из этих 2х чисел.");
-        System.out.println(TwentyMethods.getMaxIntByTernary(10, 15));
+        System.out.println(TwentyMethods.getMaxIntWithTernary(10, 15));
 
         System.out.println("\n\n3.2) Принимает 2 инта, а и б, возвращает большее из этих 2х чисел.");
-        System.out.println(TwentyMethods.getMaxIntByBranching(10, 15));
+        System.out.println(TwentyMethods.getMaxIntWithBranching(10, 15));
 
         System.out.println("\n\n4) Принимает 3 инта, возвращает большее из них.");
         System.out.println(TwentyMethods.getMaxInt(10, 35, 5));
@@ -34,14 +34,14 @@ public class Starter {
         System.out.println(TwentyMethods.getStringFromCharArray(new char[]{}));
 
         System.out.println("\n\n8) Принимает массив интов, и значение типа инт. Возвращает индекс массива в котором значение совпадает с передаваемым, начиная с начала массива. Если значения в массиве нет возвращает -1.");
-        System.out.println(TwentyMethods.searchFirstIndexOfValueInArray(new int[]{12, 34, 678, 3456, 8976, 12}, 3456));
-        System.out.println(TwentyMethods.searchFirstIndexOfValueInArray(new int[]{12, 34, 678, 3456, 8976, 12}, 3));
-        System.out.println(TwentyMethods.searchFirstIndexOfValueInArray(new int[]{}, 3));
+        System.out.println(TwentyMethods.findFirstIndexOfSearchingValueInArray(new int[]{12, 34, 678, 3456, 8976, 12}, 3456));
+        System.out.println(TwentyMethods.findFirstIndexOfSearchingValueInArray(new int[]{12, 34, 678, 3456, 8976, 12}, 3));
+        System.out.println(TwentyMethods.findFirstIndexOfSearchingValueInArray(new int[]{}, 3));
 
         System.out.println("\n\n9) Принимает массив интов и значение типа инт. Возвращает индекс массива, в котором значение совпадает с передаваемым начиная с конца массива. Если значения в массиве нет - возвращает -1.");
-        System.out.println(TwentyMethods.searchLastIndexOfValueInArray(new int[]{12, 34, 678, 3456, 8976, 12}, 12));
-        System.out.println(TwentyMethods.searchLastIndexOfValueInArray(new int[]{12, 34, 678, 3456, 8976, 12}, 3));
-        System.out.println(TwentyMethods.searchLastIndexOfValueInArray(new int[]{}, 3));
+        System.out.println(TwentyMethods.findLastIndexOfSearchingValueInArray(new int[]{12, 34, 678, 3456, 8976, 12}, 12));
+        System.out.println(TwentyMethods.findLastIndexOfSearchingValueInArray(new int[]{12, 34, 678, 3456, 8976, 12}, 3));
+        System.out.println(TwentyMethods.findLastIndexOfSearchingValueInArray(new int[]{}, 3));
 
         System.out.println("\n\n10) Метод принимает инт и возвращает факториал от заданого инта.");
         System.out.println(TwentyMethods.calculateFactorial(9));
@@ -53,6 +53,7 @@ public class Starter {
 
         System.out.println("\n\n11) Принимает инт год и возвращает тру, если год высокосный.");
         System.out.println(TwentyMethods.isLeapYear(2024));
+        System.out.println(TwentyMethods.isLeapYear(1700));
 
         System.out.println("\n\n12) Приминает массив интов и число, выводит на екран только елементы массива, которые кратны этому числу.");
         TwentyMethods.filterIntArrayMultiples(new int[]{12, 34, 6781, 3456, 8976, 12}, 3);
@@ -60,7 +61,7 @@ public class Starter {
 
         System.out.println("\n\n13) Метод принимает массив интов, сортирует его по возрастанию.");
         int[] arr_1 = new int[]{12, 34, 6781, 3456, 8976, 12};
-        TwentyMethods.bubblySortIntArrayInAscendingOrder(arr_1);
+        TwentyMethods.bubbleSortIntArrayInAscendingOrder(arr_1);
         for (int element : arr_1) {
             System.out.println(element);
         }
