@@ -52,7 +52,8 @@ public class TwentyMethods {
     public static int getMaxInt(int firstNumber, int secondNumber, int thirdNumber) {
         if (firstNumber >= secondNumber && firstNumber >= thirdNumber) {
             return firstNumber;
-        } else if (secondNumber >= firstNumber && secondNumber >= thirdNumber) {
+        }
+        if (secondNumber >= firstNumber && secondNumber >= thirdNumber) {
             return secondNumber;
         }
         return thirdNumber;
