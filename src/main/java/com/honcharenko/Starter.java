@@ -1,5 +1,7 @@
 package com.honcharenko;
 
+import java.util.Arrays;
+
 public class Starter {
     public static void main(String[] args) {
         System.out.println("\n1) Принимает массив чаров, выводит его на экран.");
@@ -85,5 +87,33 @@ public class Starter {
         for (int item : resultIntArray) {
             System.out.println(item);
         }
+
+        System.out.println("\n\n16) Принимает два массива интов, возвращает массив из елементов, которые не совпадают в массивах.");
+        int[] firstArray = new int[]{73, 3, 1, 6, 7, 45};
+        int[] secondArray = new int[]{45, 77, 3, 21, 1};
+        int[] resultArray = TwentyMethods.findNonMatchingElements(firstArray, secondArray);
+        System.out.println(Arrays.toString(resultArray));
+
+        System.out.println("\n\n17) Принимает масив интов, возвращает его же, но в реверсном порядке.");
+        int[] intArray = new int[]{12, 34, 81, 6, 7, 1};
+        int[] reversedIntArray = TwentyMethods.reverseIntArray(intArray);
+        for (int item : reversedIntArray) {
+            System.out.println(item);
+        }
+
+        System.out.println("\n\n18) Принимает 3 инта: размер выходного массива, нижняя граница, верхняя граница. Возвращает массив интов заданой длинный, который содержит случайные числа от нижней границы до верхней границы.");
+        int int_1 = 10;
+        int int_2 = -5;
+        int int_3 = 0;
+
+        int[] randomArray = TwentyMethods.generateRandomArray(int_1, int_2, int_3);
+        System.out.println(Arrays.toString(randomArray));
+
+        System.out.println("\n\n19) Принимает 2 массива чаров, проверяет есть ли в 1 массиве такая же последовательность символов, которую представляет собой второй массив. Возвращает булеан.");
+        char[] array1 = {'a', 'b', 'c', 'd', 'e'};
+        char[] array2 = {'c', 'd'};
+
+        boolean result = TwentyMethods.isCharSubArray(array1, array2);
+        System.out.println(result);
     }
 }

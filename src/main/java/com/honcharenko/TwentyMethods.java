@@ -216,4 +216,87 @@ public class TwentyMethods {
         return firstIntArray;
 
     }
+
+    /**
+     * 16) Принимает два массива интов, возвращает массив из елементов, которые не совпадают в массивах.
+     */
+    public static int[] findNonMatchingElements(int[] ints1, int[] ints2) {
+        int[] resultArray = new int[ints1.length + ints2.length];
+        int index = 0;
+        boolean isMatched;
+
+        for (int i = 0; i < ints1.length; i++) {
+            isMatched = false;
+            for (int j = 0; j < ints2.length; j++) {
+                if (ints1[i] == ints2[j]) {
+                    isMatched = true;
+                    break;
+                }
+            }
+            if (!isMatched) {
+                resultArray[index++] = ints1[i];
+            }
+        }
+
+        for (int i = 0; i < ints2.length; i++) {
+            isMatched = false;
+            for (int j = 0; j < ints1.length; j++) {
+                if (ints2[i] == ints1[j]) {
+                    isMatched = true;
+                    break;
+                }
+            }
+            if (!isMatched) {
+                resultArray[index++] = ints2[i];
+            }
+        }
+
+        int[] finalArray = new int[index];
+        System.arraycopy(resultArray, 0, finalArray, 0, index);
+
+        return finalArray;
+    }
+
+    /**
+     * 17) Принимает масив интов, возвращает его же, но в реверсном порядке.
+     */
+    public static int[] reverseIntArray(int[] ints) {
+        int[] result = new int[ints.length];
+        for (int i = 0; i < ints.length; i++) {
+            result[i] = ints[ints.length - 1 - i];
+        }
+        return result;
+    }
+
+    /**
+     * 18) Принимает 3 инта: размер выходного массива, нижняя граница, верхняя граница. Возвращает массив интов заданой длинный, который содержит случайные числа от нижней границы до верхней границы.
+     */
+    public static int[] generateRandomArray(int size, int lowerBound, int upperBound) {
+        int[] ints = new int[size];
+
+        for (int i = 0; i < size; i++) {
+            ints[i] = (int) (Math.random() * (upperBound - lowerBound + 1)) + lowerBound;
+        }
+
+        return ints;
+    }
+
+    /**
+     * 19) Принимает 2 массива чаров, проверяет есть ли в 1 массиве такая же последовательность символов, которую представляет собой второй массив. Возвращает булеан.
+     */
+    public static boolean isCharSubArray(char[] chars1, char[] chars2) {
+        for (int i = 0; i <= chars1.length - chars2.length; i++) {
+            int j;
+            for (j = 0; j < chars2.length; j++) {
+                if (chars1[i + j] != chars2[j]) {
+                    break;
+                }
+            }
+            if (j == chars2.length) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
