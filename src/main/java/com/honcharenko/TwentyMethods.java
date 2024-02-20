@@ -102,7 +102,9 @@ public class TwentyMethods {
 
 
     /**
-     * 9) Принимает массив интов и значение типа инт. Возвращает индекс массива, в котором значение совпадает с передаваемым начиная с конца массива. Если значения в массиве нет - возвращает -1.
+     * 9) Принимает массив интов и значение типа инт. Возвращает индекс массива,
+     * в котором значение совпадает с передаваемым начиная с конца массива.
+     * Если значения в массиве нет - возвращает -1.
      */
     public static int findLastIndexOfSearchingValueInArray(int[] ints, int searchValue) {
         int index = ints.length - 1;
@@ -207,7 +209,8 @@ public class TwentyMethods {
     }
 
     /**
-     * 15) Принимает два массива интов одинаковых по длинне, возращает массив интов, который состоит из перемноженных елементов входящих массивов.
+     * 15) Принимает два массива интов одинаковых по длинне, возращает массив интов,
+     * который состоит из перемноженных елементов входящих массивов.
      */
     public static int[] multiplyArrays(int[] firstIntArray, int[] secondIntArray) {
         for (int i = 0; i < firstIntArray.length; i++) {
@@ -261,28 +264,34 @@ public class TwentyMethods {
      * 17) Принимает масив интов, возвращает его же, но в реверсном порядке.
      */
     public static int[] reverseIntArray(int[] ints) {
-        int[] result = new int[ints.length];
-        for (int i = 0; i < ints.length; i++) {
-            result[i] = ints[ints.length - 1 - i];
+        for (int i = 0; i < ints.length / 2; i++) {
+            int temp = ints[i];
+            ints[i] = ints[ints.length - 1 - i];
+            ints[ints.length - 1 - i] = temp;
         }
-        return result;
-    }
-
-    /**
-     * 18) Принимает 3 инта: размер выходного массива, нижняя граница, верхняя граница. Возвращает массив интов заданой длинный, который содержит случайные числа от нижней границы до верхней границы.
-     */
-    public static int[] generateRandomArray(int size, int lowerBound, int upperBound) {
-        int[] ints = new int[size];
-
-        for (int i = 0; i < size; i++) {
-            ints[i] = (int) (Math.random() * (upperBound - lowerBound + 1)) + lowerBound;
-        }
-
         return ints;
     }
 
     /**
-     * 19) Принимает 2 массива чаров, проверяет есть ли в 1 массиве такая же последовательность символов, которую представляет собой второй массив. Возвращает булеан.
+     * 18) Принимает 3 инта: размер выходного массива, нижняя граница, верхняя граница.
+     * Возвращает массив интов заданой длинный, который содержит случайные числа от нижней границы до верхней границы.
+     */
+    public static int[] generateRandomArray(int size, int lowerBound, int upperBound) {
+        //TODO rewrite using exceptions (later)
+        if (size <= 0) {
+            System.out.println("negative or zero array size!!!");
+            return new int[]{};
+        }
+        int[] ints = new int[size];
+        for (int i = 0; i < size; i++) {
+            ints[i] = (int) (Math.random() * (upperBound - lowerBound + 1)) + lowerBound;
+        }
+        return ints;
+    }
+
+    /**
+     * 19) Принимает 2 массива чаров, проверяет есть ли в 1 массиве такая же последовательность символов,
+     * которую представляет собой второй массив. Возвращает булеан.
      */
     public static boolean isCharSubArray(char[] chars1, char[] chars2) {
         for (int i = 0; i <= chars1.length - chars2.length; i++) {

@@ -10,7 +10,8 @@ public class Starter {
         chars = new char[]{};
         TwentyMethods.printCharArray(chars);
 
-        System.out.println("\n\n2) Принимает массив интов, возвращает массив чаров, каждый символ в позиции массива соответствует коду символа передаваемого инта.");
+        System.out.println("\n\n2) Принимает массив интов, возвращает массив чаров, " +
+                "каждый символ в позиции массива соответствует коду символа передаваемого инта.");
         int[] ints = {1000, 2000, 3000, 4000, 5000};
         System.out.println(TwentyMethods.getCharArrayFromIntArray(ints));
         ints = new int[]{};
@@ -35,12 +36,16 @@ public class Starter {
         System.out.println(TwentyMethods.getStringFromCharArray(new char[]{'&', '^', '$', '#', '@', '!', '|'}));
         System.out.println(TwentyMethods.getStringFromCharArray(new char[]{}));
 
-        System.out.println("\n\n8) Принимает массив интов, и значение типа инт. Возвращает индекс массива в котором значение совпадает с передаваемым, начиная с начала массива. Если значения в массиве нет возвращает -1.");
+        System.out.println("\n\n8) Принимает массив интов, и значение типа инт. " +
+                "Возвращает индекс массива в котором значение совпадает с передаваемым, начиная с начала массива. " +
+                "Если значения в массиве нет возвращает -1.");
         System.out.println(TwentyMethods.findFirstIndexOfSearchingValueInArray(new int[]{12, 34, 678, 3456, 8976, 12}, 3456));
         System.out.println(TwentyMethods.findFirstIndexOfSearchingValueInArray(new int[]{12, 34, 678, 3456, 8976, 12}, 3));
         System.out.println(TwentyMethods.findFirstIndexOfSearchingValueInArray(new int[]{}, 3));
 
-        System.out.println("\n\n9) Принимает массив интов и значение типа инт. Возвращает индекс массива, в котором значение совпадает с передаваемым начиная с конца массива. Если значения в массиве нет - возвращает -1.");
+        System.out.println("\n\n9) Принимает массив интов и значение типа инт. " +
+                "Возвращает индекс массива, в котором значение совпадает с передаваемым начиная с конца массива. " +
+                "Если значения в массиве нет - возвращает -1.");
         System.out.println(TwentyMethods.findLastIndexOfSearchingValueInArray(new int[]{12, 34, 678, 3456, 8976, 12}, 12));
         System.out.println(TwentyMethods.findLastIndexOfSearchingValueInArray(new int[]{12, 34, 678, 3456, 8976, 12}, 3));
         System.out.println(TwentyMethods.findLastIndexOfSearchingValueInArray(new int[]{}, 3));
@@ -57,7 +62,8 @@ public class Starter {
         System.out.println(TwentyMethods.isLeapYear(2024));
         System.out.println(TwentyMethods.isLeapYear(1700));
 
-        System.out.println("\n\n12) Приминает массив интов и число, выводит на екран только елементы массива, которые кратны этому числу.");
+        System.out.println("\n\n12) Приминает массив интов и число, выводит на екран только елементы массива, " +
+                "которые кратны этому числу.");
         TwentyMethods.filterIntArrayMultiples(new int[]{12, 34, 6781, 3456, 8976, 12}, 3);
         TwentyMethods.filterIntArrayMultiples(new int[]{}, 3);
 
@@ -75,12 +81,14 @@ public class Starter {
             System.out.println(element);
         }
 
-        System.out.println("\n\n14) Принимает массив байт. Если в массиве есть повторяющиеся елементы - возвращает тру.");
+        System.out.println("\n\n14) Принимает массив байт. " +
+                "Если в массиве есть повторяющиеся елементы - возвращает тру.");
         System.out.println(TwentyMethods.hasDuplicates(new byte[]{12, 34, 81, 56, 76, 1}));
         System.out.println(TwentyMethods.hasDuplicates(new byte[]{12, 34, 81, 6, 6, 1}));
         System.out.println(TwentyMethods.hasDuplicates(new byte[]{}));
 
-        System.out.println("\n\n15) Принимает два массива интов одинаковых по длинне, возращает массив интов, который состоит из перемноженных елементов входящих массивов.");
+        System.out.println("\n\n15) Принимает два массива интов одинаковых по длинне, " +
+                "возращает массив интов, который состоит из перемноженных елементов входящих массивов.");
         int[] firstIntArray = new int[]{12, 34, 81, 6, 7, 1};
         int[] secondIntArray = new int[]{1, 7, 5, 1, 34, 12};
         int[] resultIntArray = TwentyMethods.multiplyArrays(firstIntArray, secondIntArray);
@@ -88,7 +96,8 @@ public class Starter {
             System.out.println(item);
         }
 
-        System.out.println("\n\n16) Принимает два массива интов, возвращает массив из елементов, которые не совпадают в массивах.");
+        System.out.println("\n\n16) Принимает два массива интов, " +
+                "возвращает массив из елементов, которые не совпадают в массивах.");
         int[] firstArray = new int[]{73, 3, 1, 6, 7, 45};
         int[] secondArray = new int[]{45, 77, 3, 21, 1};
         int[] resultArray = TwentyMethods.findNonMatchingElements(firstArray, secondArray);
@@ -101,18 +110,22 @@ public class Starter {
             System.out.println(item);
         }
 
-        System.out.println("\n\n18) Принимает 3 инта: размер выходного массива, нижняя граница, верхняя граница. Возвращает массив интов заданой длинный, который содержит случайные числа от нижней границы до верхней границы.");
-        int int_1 = 10;
-        int int_2 = -5;
-        int int_3 = 0;
+        System.out.println("\n\n18) Принимает 3 инта: размер выходного массива, нижняя граница, верхняя граница. " +
+                "Возвращает массив интов заданой длинный, " +
+                "который содержит случайные числа от нижней границы до верхней границы.");
+        int arraySize = 10;
+        int lowerBound=-5;
+        int upperBound=0;
 
-        int[] randomArray = TwentyMethods.generateRandomArray(int_1, int_2, int_3);
+        int[] randomArray = TwentyMethods.generateRandomArray(arraySize, lowerBound, upperBound);
         System.out.println(Arrays.toString(randomArray));
 
-        System.out.println("\n\n19) Принимает 2 массива чаров, проверяет есть ли в 1 массиве такая же последовательность символов, которую представляет собой второй массив. Возвращает булеан.");
+        System.out.println("\n\n19) Принимает 2 массива чаров, " +
+                "проверяет есть ли в 1 массиве такая же последовательность символов, " +
+                "которую представляет собой второй массив. " +
+                "Возвращает булеан.");
         char[] array1 = {'a', 'b', 'c', 'd', 'e'};
         char[] array2 = {'c', 'd'};
-
         boolean result = TwentyMethods.isCharSubArray(array1, array2);
         System.out.println(result);
     }
