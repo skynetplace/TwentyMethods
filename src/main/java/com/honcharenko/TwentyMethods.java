@@ -1,6 +1,7 @@
 package com.honcharenko;
 
 import java.math.BigInteger;
+import java.util.Arrays;
 
 public class TwentyMethods {
     /**
@@ -23,21 +24,21 @@ public class TwentyMethods {
     }
 
     /**
-     * 3) Принимает 2 инта, а и б, возвращает большее из этих 2х чисел.
+     * 3.1) Принимает 2 инта, а и б, возвращает большее из этих 2х чисел.
      */
     public static int getMaxInt(int firstNumber, int secondNumber) {
         return Math.max(firstNumber, secondNumber);
     }
 
     /**
-     * 3.1) Принимает 2 инта, а и б, возвращает большее из этих 2х чисел.
+     * 3.2) Принимает 2 инта, а и б, возвращает большее из этих 2х чисел.
      */
     public static int getMaxIntWithTernary(int firstNumber, int secondNumber) {
         return (firstNumber >= secondNumber) ? firstNumber : secondNumber;
     }
 
     /**
-     * 3.2) Принимает 2 инта, а и б, возвращает большее из этих 2х чисел.
+     * 3.3) Принимает 2 инта, а и б, возвращает большее из этих 2х чисел.
      */
     public static int getMaxIntWithBranching(int firstNumber, int secondNumber) {
         if (firstNumber >= secondNumber) {
@@ -100,7 +101,6 @@ public class TwentyMethods {
         return -1;
     }
 
-
     /**
      * 9) Принимает массив интов и значение типа инт. Возвращает индекс массива,
      * в котором значение совпадает с передаваемым начиная с конца массива.
@@ -117,7 +117,7 @@ public class TwentyMethods {
     }
 
     /**
-     * 10) Метод принимает инт и возвращает факториал от заданого инта.
+     * 10.1) Метод принимает инт и возвращает факториал от заданого инта.
      */
     public static int calculateFactorial(int number) {
         int factorial = 1;
@@ -128,7 +128,7 @@ public class TwentyMethods {
     }
 
     /**
-     * 10.1) Метод принимает инт и возвращает факториал от заданого инта.
+     * 10.2) Метод принимает инт и возвращает факториал от заданого инта.
      */
     public static BigInteger calculateFactorialRecursive(int number) {
         if (number == 0) {
@@ -163,7 +163,7 @@ public class TwentyMethods {
     }
 
     /**
-     * 13) Метод принимает массив интов, сортирует его по возрастанию.
+     * 13.1) Метод принимает массив интов, сортирует его по возрастанию.
      */
     public static void bubbleSortIntArrayInAscendingOrder(int[] ints) {
         for (int i = 0; i < ints.length - 1; i++) {
@@ -178,7 +178,7 @@ public class TwentyMethods {
     }
 
     /**
-     * 13.1) Метод принимает массив интов, сортирует его по возрастанию.
+     * 13.2) Метод принимает массив интов, сортирует его по возрастанию.
      */
     public static void selectionSortIntArrayInAscendingOrder(int[] ints) {
         for (int i = 0; i < ints.length - 1; i++) {
@@ -217,7 +217,6 @@ public class TwentyMethods {
             firstIntArray[i] *= secondIntArray[i];
         }
         return firstIntArray;
-
     }
 
     /**
@@ -227,7 +226,6 @@ public class TwentyMethods {
         int[] resultArray = new int[ints1.length + ints2.length];
         int index = 0;
         boolean isMatched;
-
         for (int i = 0; i < ints1.length; i++) {
             isMatched = false;
             for (int j = 0; j < ints2.length; j++) {
@@ -240,7 +238,6 @@ public class TwentyMethods {
                 resultArray[index++] = ints1[i];
             }
         }
-
         for (int i = 0; i < ints2.length; i++) {
             isMatched = false;
             for (int j = 0; j < ints1.length; j++) {
@@ -253,10 +250,8 @@ public class TwentyMethods {
                 resultArray[index++] = ints2[i];
             }
         }
-
         int[] finalArray = new int[index];
         System.arraycopy(resultArray, 0, finalArray, 0, index);
-
         return finalArray;
     }
 
@@ -279,10 +274,17 @@ public class TwentyMethods {
     public static int[] generateRandomArray(int size, int lowerBound, int upperBound) {
         //TODO rewrite using exceptions (later)
         if (size <= 0) {
-            System.out.println("negative or zero array size!!!");
+            System.out.println("Negative or zero array size!!!");
+            return new int[]{};
+        } else if (lowerBound > upperBound) {
+            System.out.println("lowerBound mast be less then upperBound!");
             return new int[]{};
         }
         int[] ints = new int[size];
+        if (lowerBound == upperBound) {
+            Arrays.fill(ints, lowerBound);
+            return ints;
+        }
         for (int i = 0; i < size; i++) {
             ints[i] = (int) (Math.random() * (upperBound - lowerBound + 1)) + lowerBound;
         }
@@ -294,18 +296,16 @@ public class TwentyMethods {
      * которую представляет собой второй массив. Возвращает булеан.
      */
     public static boolean isCharSubArray(char[] chars1, char[] chars2) {
-        for (int i = 0; i <= chars1.length - chars2.length; i++) {
-            int j;
-            for (j = 0; j < chars2.length; j++) {
-                if (chars1[i + j] != chars2[j]) {
-                    break;
-                }
-            }
-            if (j == chars2.length) {
-                return true;
-            }
+        char[] emptyChars = new char[0];
+        if (Arrays.equals(chars1, emptyChars) || Arrays.equals(chars2, emptyChars)) {
+            System.out.println("Input arrays must not be empty.");
+            return false;
         }
-        return false;
+        String string1 = String.valueOf(chars1);
+        String string2 = String.valueOf(chars2);
+        if (chars1.length >= chars2.length) {
+            return string1.contains(string2);
+        }
+        return string2.contains(string1);
     }
-
 }
