@@ -223,36 +223,24 @@ public class TwentyMethods {
      * 16) Принимает два массива интов, возвращает массив из елементов, которые не совпадают в массивах.
      */
     public static int[] findNonMatchingElements(int[] ints1, int[] ints2) {
-        int[] resultArray = new int[ints1.length + ints2.length];
-        int index = 0;
-        boolean isMatched;
-        for (int i = 0; i < ints1.length; i++) {
-            isMatched = false;
-            for (int j = 0; j < ints2.length; j++) {
-                if (ints1[i] == ints2[j]) {
-                    isMatched = true;
-                    break;
+        int maxLength = Math.max(ints1.length, ints2.length);
+        int[] result = new int[ints1.length + ints2.length];
+        int resultIndex = 0;
+        for (int i = 0; i < maxLength; i++) {
+            if (i < ints1.length && i < ints2.length) {
+                if (ints1[i] != ints2[i]) {
+                    result[resultIndex++] = ints1[i];
+                    result[resultIndex++] = ints2[i];
                 }
             }
-            if (!isMatched) {
-                resultArray[index++] = ints1[i];
+            if (i >= ints2.length) {
+                result[resultIndex++] = ints1[i];
+            }
+            if (i >= ints1.length) {
+                result[resultIndex++] = ints2[i];
             }
         }
-        for (int i = 0; i < ints2.length; i++) {
-            isMatched = false;
-            for (int j = 0; j < ints1.length; j++) {
-                if (ints2[i] == ints1[j]) {
-                    isMatched = true;
-                    break;
-                }
-            }
-            if (!isMatched) {
-                resultArray[index++] = ints2[i];
-            }
-        }
-        int[] finalArray = new int[index];
-        System.arraycopy(resultArray, 0, finalArray, 0, index);
-        return finalArray;
+        return Arrays.copyOfRange(result, 0, resultIndex);
     }
 
     /**
@@ -276,7 +264,8 @@ public class TwentyMethods {
         if (size <= 0) {
             System.out.println("Negative or zero array size!!!");
             return new int[]{};
-        } else if (lowerBound > upperBound) {
+        }
+        if (lowerBound > upperBound) {
             System.out.println("lowerBound mast be less then upperBound!");
             return new int[]{};
         }
@@ -296,8 +285,7 @@ public class TwentyMethods {
      * которую представляет собой второй массив. Возвращает булеан.
      */
     public static boolean isCharSubArray(char[] chars1, char[] chars2) {
-        char[] emptyChars = new char[0];
-        if (Arrays.equals(chars1, emptyChars) || Arrays.equals(chars2, emptyChars)) {
+        if (chars1.length == 0 || chars2.length == 0) {
             System.out.println("Input arrays must not be empty.");
             return false;
         }

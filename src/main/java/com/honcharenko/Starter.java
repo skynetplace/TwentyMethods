@@ -54,7 +54,6 @@ public class Starter {
                 "которые кратны этому числу.");
         test_12_case_1();
         test_12_case_2();
-
         System.out.println("\n\n13.1) Метод принимает массив интов, сортирует его по возрастанию.");
         test_13_1_case_1();
         test_13_1_case_2();
@@ -98,68 +97,202 @@ public class Starter {
         test_19_case_5();
     }
 
-    private static void test_19_case_5() {
-        char[] firstArray = {};
-        char[] secondArray = {};
-        System.out.println(TwentyMethods.isCharSubArray(firstArray, secondArray));
+    private static void test_1_case_1() {
+        char[] chars = {'e', 'b', '@', '&', '^'};
+        TwentyMethods.printCharArray(chars);
     }
 
-    private static void test_19_case_4() {
-        char[] firstArray = {'a', 'b', 'c', 'd', 'e'};
-        char[] secondArray = {};
-        System.out.println(TwentyMethods.isCharSubArray(firstArray, secondArray));
+    private static void test_1_case_2() {
+        char[] chars = {};
+        TwentyMethods.printCharArray(chars);
     }
 
-    private static void test_19_case_3() {
-        char[] firstArray = {};
-        char[] secondArray = {'c', 'd'};
-        System.out.println(TwentyMethods.isCharSubArray(firstArray, secondArray));
+    private static void test_2_case_1() {
+        int[] ints = {1000, 2000, 3000, 4000, 5000};
+        System.out.println(TwentyMethods.getCharArrayFromIntArray(ints));
     }
 
-    private static void test_19_case_2() {
-        char[] firstArray = {'c', 'd'};
-        char[] secondArray = {'a', 'b', 'c', 'd', 'e'};
-        System.out.println(TwentyMethods.isCharSubArray(firstArray, secondArray));
-    }
-
-    private static void test_19_case_1() {
-        char[] firstArray = {'a', 'b', 'c', 'd', 'e'};
-        char[] secondArray = {'c', 'd'};
-        System.out.println(TwentyMethods.isCharSubArray(firstArray, secondArray));
-    }
-
-    private static void test_18_case_5() {
-        System.out.println(Arrays.toString(TwentyMethods.generateRandomArray(10, 10, 5)));
-    }
-
-    private static void test_18_case_4() {
-        System.out.println(Arrays.toString(TwentyMethods.generateRandomArray(10, 5, 10)));
-    }
-
-    private static void test_18_case_3() {
-        System.out.println(Arrays.toString(TwentyMethods.generateRandomArray(10, 5, 5)));
-    }
-
-    private static void test_18_case_2() {
-        System.out.println(Arrays.toString(TwentyMethods.generateRandomArray(-3, 5, 10)));
-    }
-
-    private static void test_18_case_1() {
-        System.out.println(Arrays.toString(TwentyMethods.generateRandomArray(0, 5, 10)));
-    }
-
-    private static void test_17_case_2() {
+    private static void test_2_case_2() {
         int[] ints = {};
-        System.out.println(Arrays.toString(TwentyMethods.reverseIntArray(ints)));
+        System.out.println(TwentyMethods.getCharArrayFromIntArray(ints));
     }
 
-    private static void test_17_case_1() {
-        int[] ints = {12, 34, 81, 6, 7, 1};
-        System.out.println(Arrays.toString(TwentyMethods.reverseIntArray(ints)));
+    private static void test_3_1_case_1() {
+        System.out.println(TwentyMethods.getMaxInt(10, 15));
     }
 
-    private static void test_16_case_4() {
-        int[] firstArray = {};
+    private static void test_3_1_case_2() {
+        System.out.println(TwentyMethods.getMaxInt(7, 7));
+    }
+
+    private static void test_3_2_case_1() {
+        System.out.println(TwentyMethods.getMaxIntWithTernary(10, 15));
+    }
+
+    private static void test_3_2_case_2() {
+        System.out.println(TwentyMethods.getMaxIntWithTernary(7, 7));
+    }
+
+    private static void test_3_3_case_1() {
+        System.out.println(TwentyMethods.getMaxIntWithBranching(10, 15));
+    }
+
+    private static void test_3_3_case_2() {
+        System.out.println(TwentyMethods.getMaxIntWithBranching(7, 7));
+    }
+
+    private static void test_4_case_1() {
+        System.out.println(TwentyMethods.getMaxInt(10, 35, 5));
+    }
+
+    private static void test_4_case_2() {
+        System.out.println(TwentyMethods.getMaxInt(8, 8, 8));
+    }
+
+    private static void test_5_case_1() {
+        System.out.println(TwentyMethods.getMaxInt(10, 35, 350, 23, 12));
+    }
+
+    private static void test_5_case_2() {
+        System.out.println(TwentyMethods.getMaxInt(23, 23, 23, 23, 23));
+    }
+
+    private static void test_6_case_1() {
+        char[] chars = {'&', '^', '$', '#', '@', '!', '|'};
+        System.out.println(TwentyMethods.getStringFromCharArray(chars));
+    }
+
+    private static void test_6_case_2() {
+        char[] chars = {};
+        System.out.println(TwentyMethods.getStringFromCharArray(chars));
+    }
+
+    private static void test_8_case_1() {
+        int[] ints = {12, 34, 678, 3456, 8976, 12};
+        System.out.println(TwentyMethods.findFirstIndexOfSearchingValueInArray(ints, 3456));
+    }
+
+    private static void test_8_case_2() {
+        int[] ints = {12, 34, 678, 3456, 8976, 12};
+        System.out.println(TwentyMethods.findFirstIndexOfSearchingValueInArray(ints, 3));
+    }
+
+    private static void test_8_case_3() {
+        int[] ints = {};
+        System.out.println(TwentyMethods.findFirstIndexOfSearchingValueInArray(ints, 3));
+    }
+
+    private static void test_9_case_1() {
+        int[] ints = {12, 34, 678, 3456, 8976, 12};
+        System.out.println(TwentyMethods.findLastIndexOfSearchingValueInArray(ints, 12));
+    }
+
+    private static void test_9_case_2() {
+        int[] ints = {12, 34, 678, 3456, 8976, 12};
+        System.out.println(TwentyMethods.findLastIndexOfSearchingValueInArray(ints, 3));
+    }
+
+    private static void test_9_case_3() {
+        int[] ints = {};
+        System.out.println(TwentyMethods.findLastIndexOfSearchingValueInArray(ints, 3));
+    }
+
+    private static void test_10_1_case_1() {
+        System.out.println(TwentyMethods.calculateFactorial(9));
+    }
+
+    private static void test_10_1_case_2() {
+        System.out.println(TwentyMethods.calculateFactorial(0));
+    }
+
+    private static void test_10_2_case_1() {
+        System.out.println(TwentyMethods.calculateFactorialRecursive(9));
+    }
+
+    private static void test_10_2_case_2() {
+        System.out.println(TwentyMethods.calculateFactorialRecursive(0));
+    }
+
+    private static void test_11_case_1() {
+        System.out.println(TwentyMethods.isLeapYear(2024));
+    }
+
+    private static void test_11_case_2() {
+        System.out.println(TwentyMethods.isLeapYear(1700));
+    }
+
+    private static void test_12_case_1() {
+        int[] ints = {12, 34, 6781, 3456, 8976, 12};
+        TwentyMethods.filterIntArrayMultiples(ints, 3);
+    }
+
+    private static void test_12_case_2() {
+        int[] ints = {};
+        TwentyMethods.filterIntArrayMultiples(ints, 3);
+    }
+
+    private static void test_13_1_case_1() {
+        int[] ints = {12, 34, 6781, 3456, 8976, 12};
+        TwentyMethods.bubbleSortIntArrayInAscendingOrder(ints);
+        System.out.println(Arrays.toString(ints));
+    }
+
+    private static void test_13_1_case_2() {
+        int[] ints = {};
+        TwentyMethods.bubbleSortIntArrayInAscendingOrder(ints);
+        System.out.println(Arrays.toString(ints));
+    }
+
+    private static void test_13_2_case_1() {
+        int[] ints = {12, 34, 6781, 3456, 8976, 12};
+        TwentyMethods.selectionSortIntArrayInAscendingOrder(ints);
+        System.out.println(Arrays.toString(ints));
+    }
+
+    private static void test_13_2_case_2() {
+        int[] ints = {};
+        TwentyMethods.selectionSortIntArrayInAscendingOrder(ints);
+        System.out.println(Arrays.toString(ints));
+    }
+
+    private static void test_14_case_1() {
+        byte[] bytes = {12, 34, 81, 56, 76, 1};
+        System.out.println(TwentyMethods.hasDuplicates(bytes));
+    }
+
+    private static void test_14_case_2() {
+        byte[] bytes = {12, 34, 81, 6, 6, 1};
+        System.out.println(TwentyMethods.hasDuplicates(bytes));
+    }
+
+    private static void test_14_case_3() {
+        byte[] bytes = {};
+        System.out.println(TwentyMethods.hasDuplicates(bytes));
+    }
+
+    private static void test_15_case_1() {
+        int[] firstIntArray = {12, 34, 81, 6, 7, 1};
+        int[] secondIntArray = {1, 7, 5, 1, 34, 12};
+        int[] resultIntArray = TwentyMethods.multiplyArrays(firstIntArray, secondIntArray);
+        System.out.println(Arrays.toString(resultIntArray));
+    }
+
+    private static void test_15_case_2() {
+        int[] firstIntArray = {};
+        int[] secondIntArray = {};
+        int[] resultIntArray = TwentyMethods.multiplyArrays(firstIntArray, secondIntArray);
+        System.out.println(Arrays.toString(resultIntArray));
+    }
+
+    private static void test_16_case_1() {
+        int[] firstArray = {72, 73, 3, 6, 7, 45, 99};
+        int[] secondArray = {72, 77, 3, 21, 7};
+        int[] resultArray = TwentyMethods.findNonMatchingElements(firstArray, secondArray);
+        System.out.println(Arrays.toString(resultArray));
+    }
+
+    private static void test_16_case_2() {
+        int[] firstArray = {73, 3, 1, 6, 7, 45};
         int[] secondArray = {};
         int[] resultArray = TwentyMethods.findNonMatchingElements(firstArray, secondArray);
         System.out.println(Arrays.toString(resultArray));
@@ -172,204 +305,70 @@ public class Starter {
         System.out.println(Arrays.toString(resultArray));
     }
 
-    private static void test_16_case_2() {
-        int[] firstArray = {73, 3, 1, 6, 7, 45};
+    private static void test_16_case_4() {
+        int[] firstArray = {};
         int[] secondArray = {};
         int[] resultArray = TwentyMethods.findNonMatchingElements(firstArray, secondArray);
         System.out.println(Arrays.toString(resultArray));
     }
 
-    private static void test_16_case_1() {
-        int[] firstArray = {73, 3, 1, 6, 7, 45};
-        int[] secondArray = {45, 77, 3, 21, 1};
-        int[] resultArray = TwentyMethods.findNonMatchingElements(firstArray, secondArray);
-        System.out.println(Arrays.toString(resultArray));
+    private static void test_17_case_1() {
+        int[] ints = {12, 34, 81, 6, 7, 1};
+        System.out.println(Arrays.toString(TwentyMethods.reverseIntArray(ints)));
     }
 
-    private static void test_15_case_2() {
-        int[] firstIntArray = {};
-        int[] secondIntArray = {};
-        int[] resultIntArray = TwentyMethods.multiplyArrays(firstIntArray, secondIntArray);
-        System.out.println(Arrays.toString(resultIntArray));
-    }
-
-    private static void test_15_case_1() {
-        int[] firstIntArray = {12, 34, 81, 6, 7, 1};
-        int[] secondIntArray = {1, 7, 5, 1, 34, 12};
-        int[] resultIntArray = TwentyMethods.multiplyArrays(firstIntArray, secondIntArray);
-        System.out.println(Arrays.toString(resultIntArray));
-    }
-
-    private static void test_14_case_3() {
-        byte[] bytes = {};
-        System.out.println(TwentyMethods.hasDuplicates(bytes));
-    }
-
-    private static void test_14_case_2() {
-        byte[] bytes = {12, 34, 81, 6, 6, 1};
-        System.out.println(TwentyMethods.hasDuplicates(bytes));
-    }
-
-    private static void test_14_case_1() {
-        byte[] bytes = {12, 34, 81, 56, 76, 1};
-        System.out.println(TwentyMethods.hasDuplicates(bytes));
-    }
-
-    private static void test_13_2_case_2() {
+    private static void test_17_case_2() {
         int[] ints = {};
-        TwentyMethods.selectionSortIntArrayInAscendingOrder(ints);
-        System.out.println(Arrays.toString(ints));
+        System.out.println(Arrays.toString(TwentyMethods.reverseIntArray(ints)));
     }
 
-    private static void test_13_2_case_1() {
-        int[] ints = {12, 34, 6781, 3456, 8976, 12};
-        TwentyMethods.selectionSortIntArrayInAscendingOrder(ints);
-        System.out.println(Arrays.toString(ints));
+    private static void test_18_case_1() {
+        System.out.println(Arrays.toString(TwentyMethods.generateRandomArray(0, 5, 10)));
     }
 
-    private static void test_13_1_case_2() {
-        int[] ints = {};
-        TwentyMethods.bubbleSortIntArrayInAscendingOrder(ints);
-        System.out.println(Arrays.toString(ints));
+    private static void test_18_case_2() {
+        System.out.println(Arrays.toString(TwentyMethods.generateRandomArray(-3, 5, 10)));
     }
 
-    private static void test_13_1_case_1() {
-        int[] ints = {12, 34, 6781, 3456, 8976, 12};
-        TwentyMethods.bubbleSortIntArrayInAscendingOrder(ints);
-        System.out.println(Arrays.toString(ints));
+    private static void test_18_case_3() {
+        System.out.println(Arrays.toString(TwentyMethods.generateRandomArray(10, 5, 5)));
     }
 
-    private static void test_12_case_2() {
-        int[] ints = {};
-        TwentyMethods.filterIntArrayMultiples(ints, 3);
+    private static void test_18_case_4() {
+        System.out.println(Arrays.toString(TwentyMethods.generateRandomArray(10, 5, 10)));
     }
 
-    private static void test_12_case_1() {
-        int[] ints = {12, 34, 6781, 3456, 8976, 12};
-        TwentyMethods.filterIntArrayMultiples(ints, 3);
+    private static void test_18_case_5() {
+        System.out.println(Arrays.toString(TwentyMethods.generateRandomArray(10, 10, 5)));
     }
 
-    private static void test_11_case_2() {
-        System.out.println(TwentyMethods.isLeapYear(1700));
+    private static void test_19_case_1() {
+        char[] firstArray = {'a', 'b', 'c', 'd', 'e'};
+        char[] secondArray = {'c', 'd'};
+        System.out.println(TwentyMethods.isCharSubArray(firstArray, secondArray));
     }
 
-    private static void test_11_case_1() {
-        System.out.println(TwentyMethods.isLeapYear(2024));
+    private static void test_19_case_2() {
+        char[] firstArray = {'c', 'd'};
+        char[] secondArray = {'a', 'b', 'c', 'd', 'e'};
+        System.out.println(TwentyMethods.isCharSubArray(firstArray, secondArray));
     }
 
-    private static void test_10_2_case_2() {
-        System.out.println(TwentyMethods.calculateFactorialRecursive(0));
+    private static void test_19_case_3() {
+        char[] firstArray = {};
+        char[] secondArray = {'c', 'd'};
+        System.out.println(TwentyMethods.isCharSubArray(firstArray, secondArray));
     }
 
-    private static void test_10_2_case_1() {
-        System.out.println(TwentyMethods.calculateFactorialRecursive(9));
+    private static void test_19_case_4() {
+        char[] firstArray = {'a', 'b', 'c', 'd', 'e'};
+        char[] secondArray = {};
+        System.out.println(TwentyMethods.isCharSubArray(firstArray, secondArray));
     }
 
-    private static void test_10_1_case_2() {
-        System.out.println(TwentyMethods.calculateFactorial(0));
-    }
-
-    private static void test_10_1_case_1() {
-        System.out.println(TwentyMethods.calculateFactorial(9));
-    }
-
-    private static void test_9_case_3() {
-        int[] ints = {};
-        System.out.println(TwentyMethods.findLastIndexOfSearchingValueInArray(ints, 3));
-    }
-
-    private static void test_9_case_2() {
-        int[] ints = {12, 34, 678, 3456, 8976, 12};
-        System.out.println(TwentyMethods.findLastIndexOfSearchingValueInArray(ints, 3));
-    }
-
-    private static void test_9_case_1() {
-        int[] ints = {12, 34, 678, 3456, 8976, 12};
-        System.out.println(TwentyMethods.findLastIndexOfSearchingValueInArray(ints, 12));
-    }
-
-    private static void test_8_case_3() {
-        int[] ints = {};
-        System.out.println(TwentyMethods.findFirstIndexOfSearchingValueInArray(ints, 3));
-    }
-
-    private static void test_8_case_2() {
-        int[] ints = {12, 34, 678, 3456, 8976, 12};
-        System.out.println(TwentyMethods.findFirstIndexOfSearchingValueInArray(ints, 3));
-    }
-
-    private static void test_8_case_1() {
-        int[] ints = {12, 34, 678, 3456, 8976, 12};
-        System.out.println(TwentyMethods.findFirstIndexOfSearchingValueInArray(ints, 3456));
-    }
-
-    private static void test_6_case_2() {
-        char[] chars = {};
-        System.out.println(TwentyMethods.getStringFromCharArray(chars));
-    }
-
-    private static void test_6_case_1() {
-        char[] chars = {'&', '^', '$', '#', '@', '!', '|'};
-        System.out.println(TwentyMethods.getStringFromCharArray(chars));
-    }
-
-    private static void test_5_case_2() {
-        System.out.println(TwentyMethods.getMaxInt(23, 23, 23, 23, 23));
-    }
-
-    private static void test_5_case_1() {
-        System.out.println(TwentyMethods.getMaxInt(10, 35, 350, 23, 12));
-    }
-
-    private static void test_4_case_2() {
-        System.out.println(TwentyMethods.getMaxInt(8, 8, 8));
-    }
-
-    private static void test_4_case_1() {
-        System.out.println(TwentyMethods.getMaxInt(10, 35, 5));
-    }
-
-    private static void test_3_3_case_2() {
-        System.out.println(TwentyMethods.getMaxIntWithBranching(7, 7));
-    }
-
-    private static void test_3_3_case_1() {
-        System.out.println(TwentyMethods.getMaxIntWithBranching(10, 15));
-    }
-
-    private static void test_3_2_case_2() {
-        System.out.println(TwentyMethods.getMaxIntWithTernary(7, 7));
-    }
-
-    private static void test_3_2_case_1() {
-        System.out.println(TwentyMethods.getMaxIntWithTernary(10, 15));
-    }
-
-    private static void test_3_1_case_2() {
-        System.out.println(TwentyMethods.getMaxInt(7, 7));
-    }
-
-    private static void test_3_1_case_1() {
-        System.out.println(TwentyMethods.getMaxInt(10, 15));
-    }
-
-    private static void test_2_case_2() {
-        int[] ints = {};
-        System.out.println(TwentyMethods.getCharArrayFromIntArray(ints));
-    }
-
-    private static void test_2_case_1() {
-        int[] ints = {1000, 2000, 3000, 4000, 5000};
-        System.out.println(TwentyMethods.getCharArrayFromIntArray(ints));
-    }
-
-    private static void test_1_case_2() {
-        char[] chars = {};
-        TwentyMethods.printCharArray(chars);
-    }
-
-    private static void test_1_case_1() {
-        char[] chars = {'e', 'b', '@', '&', '^'};
-        TwentyMethods.printCharArray(chars);
+    private static void test_19_case_5() {
+        char[] firstArray = {};
+        char[] secondArray = {};
+        System.out.println(TwentyMethods.isCharSubArray(firstArray, secondArray));
     }
 }
