@@ -169,32 +169,32 @@ public class Starter {
 
     private static void test_8_case_1() {
         int[] ints = {12, 34, 678, 3456, 8976, 12};
-        System.out.println(TwentyMethods.findFirstIndexOfSearchingValueInArray(ints, 3456));
+        System.out.println(TwentyMethods.findFirstIndexOfSearchValueInArray(ints, 3456));
     }
 
     private static void test_8_case_2() {
         int[] ints = {12, 34, 678, 3456, 8976, 12};
-        System.out.println(TwentyMethods.findFirstIndexOfSearchingValueInArray(ints, 3));
+        System.out.println(TwentyMethods.findFirstIndexOfSearchValueInArray(ints, 3));
     }
 
     private static void test_8_case_3() {
         int[] ints = {};
-        System.out.println(TwentyMethods.findFirstIndexOfSearchingValueInArray(ints, 3));
+        System.out.println(TwentyMethods.findFirstIndexOfSearchValueInArray(ints, 3));
     }
 
     private static void test_9_case_1() {
         int[] ints = {12, 34, 678, 3456, 8976, 12};
-        System.out.println(TwentyMethods.findLastIndexOfSearchingValueInArray(ints, 12));
+        System.out.println(TwentyMethods.findLastIndexOfSearchValueInArray(ints, 12));
     }
 
     private static void test_9_case_2() {
         int[] ints = {12, 34, 678, 3456, 8976, 12};
-        System.out.println(TwentyMethods.findLastIndexOfSearchingValueInArray(ints, 3));
+        System.out.println(TwentyMethods.findLastIndexOfSearchValueInArray(ints, 3));
     }
 
     private static void test_9_case_3() {
         int[] ints = {};
-        System.out.println(TwentyMethods.findLastIndexOfSearchingValueInArray(ints, 3));
+        System.out.println(TwentyMethods.findLastIndexOfSearchValueInArray(ints, 3));
     }
 
     private static void test_10_1_case_1() {

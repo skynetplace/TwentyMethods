@@ -8,7 +8,7 @@ public class TwentyMethods {
      * 1) Принимает массив чаров, выводит его на экран.
      */
     public static void printCharArray(char[] chars) {
-        System.out.println(chars);
+        System.out.print(chars);
     }
 
     /**
@@ -90,7 +90,7 @@ public class TwentyMethods {
      * Возвращает индекс массива, в котором значение совпадает с передаваемым начиная с начала массива.
      * Если значения в массиве нет - возвращает -1.
      */
-    public static int findFirstIndexOfSearchingValueInArray(int[] ints, int searchValue) {
+    public static int findFirstIndexOfSearchValueInArray(int[] ints, int searchValue) {
         int i = 0;
         for (int item : ints) {
             if (item == searchValue) {
@@ -106,7 +106,7 @@ public class TwentyMethods {
      * в котором значение совпадает с передаваемым начиная с конца массива.
      * Если значения в массиве нет - возвращает -1.
      */
-    public static int findLastIndexOfSearchingValueInArray(int[] ints, int searchValue) {
+    public static int findLastIndexOfSearchValueInArray(int[] ints, int searchValue) {
         int index = ints.length - 1;
         for (int i = index; i >= 0; i--) {
             if (ints[i] == searchValue) {
