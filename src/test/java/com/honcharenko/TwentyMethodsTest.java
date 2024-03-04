@@ -12,593 +12,719 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class TwentyMethodsTest {
 
-
     @Test
     void givenCharArray_whenPrintCharArray_thenPrintToConsole() {
         // given
         char[] chars = {'e', 'b', '@', '&', '^'};
-        String expectedOutput = "eb@&^";
         OutputStream outputStream = new ByteArrayOutputStream();
-        PrintStream printStream = new PrintStream(outputStream);
-        System.setOut(printStream);
+        System.setOut(new PrintStream(outputStream));
         // when
         printCharArray(chars);
         // then
-        assertEquals(expectedOutput, outputStream.toString());
+        assertEquals("eb@&^", outputStream.toString());
     }
 
     @Test
     void givenEmptyCharArray_whenPrintCharArray_thenPrintToConsole() {
+        // given
         char[] chars = {};
-        String expectedOutput = "";
         OutputStream outputStream = new ByteArrayOutputStream();
-        PrintStream printStream = new PrintStream(outputStream);
-        System.setOut(printStream);
+        System.setOut(new PrintStream(outputStream));
+        // when
         printCharArray(chars);
-        assertEquals(expectedOutput, outputStream.toString());
+        // then
+        assertEquals("", outputStream.toString());
     }
 
     @Test
     void givenIntArray_whenGetCharArrayFromIntArray_thenReturnCharArray() {
+        // given
         int[] ints = {1000, 2000, 3000, 4000, 5000};
-        char[] expected = {'Ϩ', 'ߐ', 'ஸ', 'ྠ', 'ᎈ'};
+        // when
         char[] actual = getCharArrayFromIntArray(ints);
-        assertArrayEquals(expected, actual);
+        // then
+        assertArrayEquals(new char[]{'Ϩ', 'ߐ', 'ஸ', 'ྠ', 'ᎈ'}, actual);
     }
 
     @Test
-    public void givenEmptyIntArray_whenGetCharArrayFromIntArray_thenReturnEmptyCharArray() {
+    void givenEmptyIntArray_whenGetCharArrayFromIntArray_thenReturnEmptyCharArray() {
+        // given
         int[] ints = {};
-        char[] expected = {};
+        // when
         char[] actual = getCharArrayFromIntArray(ints);
-        assertArrayEquals(expected, actual);
+        // then
+        assertArrayEquals(new char[]{}, actual);
     }
 
     @Test
-    void givenTwoIntsAndTheFirstIsGreater_whenGetMaxInt_thenReturnFirst() {
-        int firstNumber = 10;
-        int secondNumber = 5;
-        int expected = 10;
-        int actual = getMaxInt(firstNumber, secondNumber);
-        assertEquals(expected, actual);
+    void givenTwoIntsAndFirstIsGreater_whenGetMaxInt_thenReturnFirst() {
+        // given
+        int firstInt = 10;
+        int secondInt = 5;
+        // when
+        int actual = getMaxInt(firstInt, secondInt);
+        // then
+        assertEquals(10, actual);
     }
 
     @Test
-    void givenTwoIntsAndTheSecondIsGreater_whenGetMaxInt_thenReturnSecond() {
-        int firstNumber = 5;
-        int secondNumber = 10;
-        int expected = 10;
-        int actual = getMaxInt(firstNumber, secondNumber);
-        assertEquals(expected, actual);
+    void givenTwoIntsAndSecondIsGreater_whenGetMaxInt_thenReturnSecond() {
+        // given
+        int firstInt = 5;
+        int secondInt = 10;
+        // when
+        int actual = getMaxInt(firstInt, secondInt);
+        // then
+        assertEquals(10, actual);
     }
 
     @Test
     void givenTwoEqualInts_whenGetMaxInt_thenReturnOneOfThem() {
-        int firstNumber = 10;
-        int secondNumber = 10;
-        int expected = 10;
-        int actual = getMaxInt(firstNumber, secondNumber);
-        assertEquals(expected, actual);
+        // given
+        int firstInt = 10;
+        int secondInt = 10;
+        // when
+        int actual = getMaxInt(firstInt, secondInt);
+        // then
+        assertEquals(10, actual);
     }
 
     @Test
-    void getMaxIntWithTernary_whenFirstNumberIsGreater() {
-        int firstNumber = 10;
-        int secondNumber = 5;
-        int expected = 10;
-        int actual = getMaxIntWithTernary(firstNumber, secondNumber);
-        assertEquals(expected, actual);
+    void givenTwoIntsAndFirstIsGreater_whenGetMaxIntWithTernary_thenReturnFirst() {
+        // given
+        int firstInt = 10;
+        int secondInt = 5;
+        // when
+        int actual = getMaxIntWithTernary(firstInt, secondInt);
+        // then
+        assertEquals(10, actual);
     }
 
     @Test
-    void getMaxIntWithTernary_whenSecondNumberIsGreater() {
-        int firstNumber = 5;
-        int secondNumber = 10;
-        int expected = 10;
-        int actual = getMaxIntWithTernary(firstNumber, secondNumber);
-        assertEquals(expected, actual);
+    void givenTwoIntsAndSecondIsGreater_whenGetMaxIntWithTernary_thenReturnSecond() {
+        // given
+        int firstInt = 5;
+        int secondInt = 10;
+        // when
+        int actual = getMaxIntWithTernary(firstInt, secondInt);
+        // then
+        assertEquals(10, actual);
     }
 
     @Test
-    void getMaxIntWithTernary_whenNumbersAreEqual() {
-        int firstNumber = 10;
-        int secondNumber = 10;
-        int expected = 10;
-        int actual = getMaxIntWithTernary(firstNumber, secondNumber);
-        assertEquals(expected, actual);
+    void givenTwoEqualInts_whenGetMaxIntWithTernary_thenReturnOneOfThem() {
+        //given
+        int firstInt = 10;
+        int secondInt = 10;
+        // when
+        int actual = getMaxIntWithTernary(firstInt, secondInt);
+        // then
+        assertEquals(10, actual);
     }
 
     @Test
-    void getMaxIntWithBranching_whenFirstNumberIsGreater() {
-        int firstNumber = 10;
-        int secondNumber = 5;
-        int expected = 10;
-        int actual = getMaxIntWithBranching(firstNumber, secondNumber);
-        assertEquals(expected, actual);
+    void givenTwoIntsAndFirstIsGreater_whenMaxIntWithBranching_thenReturnFirst() {
+        // given
+        int firstInt = 10;
+        int secondInt = 5;
+        // when
+        int actual = getMaxIntWithBranching(firstInt, secondInt);
+        // then
+        assertEquals(10, actual);
     }
 
     @Test
-    void getMaxIntWithBranching_whenSecondNumberIsGreater() {
-        int firstNumber = 5;
-        int secondNumber = 10;
-        int expected = 10;
-        int actual = getMaxIntWithBranching(firstNumber, secondNumber);
-        assertEquals(expected, actual);
+    void givenTwoIntsAndSecondIsGreater_whenGetMaxIntWithBranching_thenReturnSecond() {
+        // given
+        int firstInt = 5;
+        int secondInt = 10;
+        // when
+        int actual = getMaxIntWithBranching(firstInt, secondInt);
+        // then
+        assertEquals(10, actual);
     }
 
     @Test
-    void getMaxIntWithBranching_whenNumbersAreEqual() {
-        int firstNumber = 10;
-        int secondNumber = 10;
-        int expected = 10;
-        int actual = getMaxIntWithBranching(firstNumber, secondNumber);
-        assertEquals(expected, actual);
+    void givenTwoEqualInts_whenGetMaxIntWithBranching_thenReturnOneOfThem() {
+        // given
+        int firstInt = 10;
+        int secondInt = 10;
+        // when
+        int actual = getMaxIntWithBranching(firstInt, secondInt);
+        // then
+        assertEquals(10, actual);
     }
 
     @Test
-    void givenThreeIntsAndTheFirstIsGreater_whenGetMaxInt_thenReturnFirst() {
-        int firstNumber = 15;
-        int secondNumber = 10;
-        int thirdNumber = 5;
-        int expected = 15;
-        int actual = getMaxInt(firstNumber, secondNumber, thirdNumber);
-        assertEquals(expected, actual);
+    void givenThreeIntsAndFirstIsGreater_whenGetMaxInt_thenReturnFirst() {
+        // given
+        int firstInt = 15;
+        int secondInt = 10;
+        int thirdInt = 5;
+        // when
+        int actual = getMaxInt(firstInt, secondInt, thirdInt);
+        // then
+        assertEquals(15, actual);
     }
 
     @Test
-    void givenThreeIntsAndTheSecondIsGreater_whenGetMaxInt_thenReturnSecond() {
-        int firstNumber = 10;
-        int secondNumber = 15;
-        int thirdNumber = 5;
-        int expected = 15;
-        int actual = getMaxInt(firstNumber, secondNumber, thirdNumber);
-        assertEquals(expected, actual);
+    void givenThreeIntsAndSecondIsGreater_whenGetMaxInt_thenReturnSecond() {
+        // given
+        int firstInt = 10;
+        int secondInt = 15;
+        int thirdInt = 5;
+        // when
+        int actual = getMaxInt(firstInt, secondInt, thirdInt);
+        // then
+        assertEquals(15, actual);
     }
 
     @Test
-    void givenThreeIntsAndTheThirdIsGreater_whenGetMaxInt_thenReturnThird() {
-        int firstNumber = 5;
-        int secondNumber = 10;
-        int thirdNumber = 15;
-        int expected = 15;
-        int actual = getMaxInt(firstNumber, secondNumber, thirdNumber);
-        assertEquals(expected, actual);
+    void givenThreeIntsAndThirdIsGreater_whenGetMaxInt_thenReturnThird() {
+        // given
+        int firstInt = 5;
+        int secondInt = 10;
+        int thirdInt = 15;
+        // when
+        int actual = getMaxInt(firstInt, secondInt, thirdInt);
+        // then
+        assertEquals(15, actual);
     }
 
     @Test
-    void getMaxInt_whenThreeNumbersInputAndNumbersAreEqual() {
-        int firstNumber = 10;
-        int secondNumber = 10;
-        int thirdNumber = 10;
-        int expected = 10;
-        int actual = getMaxInt(firstNumber, secondNumber, thirdNumber);
-        assertEquals(expected, actual);
+    void givenThreeEqualInts_whenGetMaxInt_thenReturnOneOfThem() {
+        // given
+        int firstInt = 10;
+        int secondInt = 10;
+        int thirdInt = 10;
+        // when
+        int actual = getMaxInt(firstInt, secondInt, thirdInt);
+        // then
+        assertEquals(10, actual);
     }
 
     @Test
-    void getMaxInt_whenFiveNumbersInputAndFirstNumberIsGreater() {
-        int firstNumber = 25;
-        int secondNumber = 10;
-        int thirdNumber = 15;
-        int fourthNumber = 20;
-        int fifthNumber = 5;
-        int expected = 25;
-        int actual = getMaxInt(firstNumber, secondNumber, thirdNumber, fourthNumber, fifthNumber);
-        assertEquals(expected, actual);
+    void givenFiveIntsAndFirstIsGreater_whenGetMaxInt_thenReturnFirst() {
+        // given
+        int firstInt = 25;
+        int secondInt = 10;
+        int thirdInt = 15;
+        int fourthInt = 20;
+        int fifthInt = 5;
+        // when
+        int actual = getMaxInt(firstInt, secondInt, thirdInt, fourthInt, fifthInt);
+        // then
+        assertEquals(25, actual);
     }
 
     @Test
-    void getMaxInt_whenFiveNumbersInputAndSecondNumberIsGreater() {
-        int firstNumber = 10;
-        int secondNumber = 25;
-        int thirdNumber = 15;
-        int fourthNumber = 20;
-        int fifthNumber = 5;
-        int expected = 25;
-        int actual = getMaxInt(firstNumber, secondNumber, thirdNumber, fourthNumber, fifthNumber);
-        assertEquals(expected, actual);
+    void givenFiveIntsAndSecondIsGreater_whenGetMaxInt_thenReturnSecond() {
+        // given
+        int firstInt = 10;
+        int secondInt = 25;
+        int thirdInt = 15;
+        int fourthInt = 20;
+        int fifthInt = 5;
+        // when
+        int actual = getMaxInt(firstInt, secondInt, thirdInt, fourthInt, fifthInt);
+        // then
+        assertEquals(25, actual);
     }
 
     @Test
-    void getMaxInt_whenFiveNumbersInputAndThirdNumberIsGreater() {
-        int firstNumber = 15;
-        int secondNumber = 10;
-        int thirdNumber = 25;
-        int fourthNumber = 20;
-        int fifthNumber = 5;
-        int expected = 25;
-        int actual = getMaxInt(firstNumber, secondNumber, thirdNumber, fourthNumber, fifthNumber);
-        assertEquals(expected, actual);
+    void givenFiveIntsAndThirdIsGreater_whenGetMaxInt_thenReturnThird() {
+        // given
+        int firstInt = 15;
+        int secondInt = 10;
+        int thirdInt = 25;
+        int fourthInt = 20;
+        int fifthInt = 5;
+        // when
+        int actual = getMaxInt(firstInt, secondInt, thirdInt, fourthInt, fifthInt);
+        // then
+        assertEquals(25, actual);
     }
 
     @Test
-    void getMaxInt_whenFiveNumbersInputAndFourthNumberIsGreater() {
-        int firstNumber = 20;
-        int secondNumber = 10;
-        int thirdNumber = 15;
-        int fourthNumber = 25;
-        int fifthNumber = 5;
-        int expected = 25;
-        int actual = getMaxInt(firstNumber, secondNumber, thirdNumber, fourthNumber, fifthNumber);
-        assertEquals(expected, actual);
+    void givenFiveIntsAndFourthIsGreater_whenGetMaxInt_thenReturnFourth() {
+        // given
+        int firstInt = 20;
+        int secondInt = 10;
+        int thirdInt = 15;
+        int fourthInt = 25;
+        int fifthInt = 5;
+        // when
+        int actual = getMaxInt(firstInt, secondInt, thirdInt, fourthInt, fifthInt);
+        // then
+        assertEquals(25, actual);
     }
 
     @Test
-    void getMaxInt_whenFiveNumbersInputAndFifthNumberIsGreater() {
-        int firstNumber = 5;
-        int secondNumber = 10;
-        int thirdNumber = 15;
-        int fourthNumber = 20;
-        int fifthNumber = 25;
-        int expected = 25;
-        int actual = getMaxInt(firstNumber, secondNumber, thirdNumber, fourthNumber, fifthNumber);
-        assertEquals(expected, actual);
+    void givenFiveIntsAndFifthIsGreater_whenGetMaxInt_thenReturnFifth() {
+        // given
+        int firstInt = 5;
+        int secondInt = 10;
+        int thirdInt = 15;
+        int fourthInt = 20;
+        int fifthInt = 25;
+        // when
+        int actual = getMaxInt(firstInt, secondInt, thirdInt, fourthInt, fifthInt);
+        // then
+        assertEquals(25, actual);
     }
 
     @Test
-    void getMaxInt_whenFiveNumbersInputAndNumbersAreEqual() {
-        int firstNumber = 25;
-        int secondNumber = 25;
-        int thirdNumber = 25;
-        int fourthNumber = 25;
-        int fifthNumber = 25;
-        int expected = 25;
-        int actual = getMaxInt(firstNumber, secondNumber, thirdNumber, fourthNumber, fifthNumber);
-        assertEquals(expected, actual);
+    void givenFiveEqualInts_whenGetMaxInt_thenReturnOneOfThem() {
+        // given
+        int firstInt = 25;
+        int secondInt = 25;
+        int thirdInt = 25;
+        int fourthInt = 25;
+        int fifthInt = 25;
+        // when
+        int actual = getMaxInt(firstInt, secondInt, thirdInt, fourthInt, fifthInt);
+        // then
+        assertEquals(25, actual);
     }
 
     @Test
-    void getStringFromCharArray_whenSingleCharacter() {
+    void givenCharArrayWithOneCharacter_whenGetStringFromCharArray_thenReturnStringWithOneCharacter() {
+        // given
         char[] chars = {'$'};
-        String expected = "$";
+        // when
         String actual = getStringFromCharArray(chars);
-        assertEquals(expected, actual);
+        // then
+        assertEquals("$", actual);
     }
 
     @Test
-    void getStringFromCharArray_whenMultipleCharacters() {
+    void givenCharArray_whenGetStringFromCharArray_thenReturnString() {
+        // given
         char[] chars = {'&', '^', '$', '#', '@', '!', '|'};
-        String expected = "&^$#@!|";
+        // when
         String actual = getStringFromCharArray(chars);
-        assertEquals(expected, actual);
+        // then
+        assertEquals("&^$#@!|", actual);
     }
 
     @Test
     void givenEmptyCharArray_whenGetStringFromCharArray_thenReturnExpectedString() {
+        // given
         char[] chars = {};
-        String expected = "";
+        // when
         String actual = getStringFromCharArray(chars);
-        assertEquals(expected, actual);
+        // then
+        assertEquals("", actual);
     }
 
     @Test
-    void findFirstIndexOfSearchValueInArray_whenValueExists() {
-        int[] ints = {12, 34, 678, 3456, 8976, 12};
-        int searchValue = 678;
+    void givenIntArrayAndExistingInArrayWithDuplicatesValue_whenFindFirstIndexOfSearchValueInArray_thenReturnFirstIndexOfSearchValue() {
+        // given
+        int[] ints = {12, 34, 678, 3456, 1, 8976, 12};
+        int searchValue = 12;
+        // when
         int actual = findFirstIndexOfSearchValueInArray(ints, searchValue);
-        int expected = 2;
-        assertEquals(expected, actual);
+        // then
+        assertEquals(0, actual);
+    }
+
+    @Test
+    void givenIntArrayAndExistingInArrayWithoutDuplicatesValue_whenFindFirstIndexOfSearchValueInArray_thenReturnFirstIndexOfSearchValue() {
+        // given
+        int[] ints = {12, 34, 678, 3456, 1, 8976};
+        int searchValue = 1;
+        // when
+        int actual = findFirstIndexOfSearchValueInArray(ints, searchValue);
+        // then
+        assertEquals(4, actual);
     }
 
     @Test
     void givenIntArrayAndNotExistingInArrayValue_whenFindFirstIndexOfSearchValueInArray_thenReturnMinusOne() {
+        // given
         int[] ints = {12, 34, 678, 3456, 8976, 12};
         int searchValue = 1;
+        // when
         int actual = findFirstIndexOfSearchValueInArray(ints, searchValue);
-        int expected = -1;
-        assertEquals(expected, actual);
+        // then
+        assertEquals(-1, actual);
     }
 
     @Test
-    void findFirstIndexOfSearchValueInArray_whenEmptyArray() {
+    void givenEmptyIntArrayAndIntValue_whenFindFirstIndexOfSearchValueInArray_thenReturnMinusOne() {
+        // given
         int[] ints = {};
         int searchValue = 1;
+        // when
         int actual = findFirstIndexOfSearchValueInArray(ints, searchValue);
-        int expected = -1;
-        assertEquals(expected, actual);
+        // then
+        assertEquals(-1, actual);
     }
 
     @Test
-    void findLastIndexOfSearchValueInArray_whenValueExists() {
-        int[] ints = {12, 34, 678, 3456, 8976, 12};
-        int searchValue = 12;
-        int actual = findLastIndexOfSearchValueInArray(ints, searchValue);
-        int expected = 5;
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    void findLastIndexOfSearchValueInArray_whenValueNotExists() {
-        int[] ints = {12, 34, 678, 3456, 8976, 12};
-        int searchValue = 1;
-        int actual = findLastIndexOfSearchValueInArray(ints, searchValue);
-        int expected = -1;
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    void findLastIndexOfSearchValueInArrayWithDublicates_whenValueExists() {
+    void givenIntArrayAndExistingInArrayWithDuplicatesValue_whenFindLastIndexOfSearchValueInArray_thenReturnLastIndexOfSearchValue() {
+        // given
         int[] ints = {12, 34, 678, 3456, 1, 8976, 12};
         int searchValue = 12;
+        // when
         int actual = findLastIndexOfSearchValueInArray(ints, searchValue);
-        int expected = 6;
-        assertEquals(expected, actual);
+        // then
+        assertEquals(6, actual);
     }
 
     @Test
-    void findLastIndexOfSearchValueInArrayWithoutDublicates_whenValueExists() {
+    void givenIntArrayAndExistingInArrayWithoutDuplicatesValue_whenFindLastIndexOfSearchValueInArray_thenReturnLastIndexOfSearchValue() {
+        // given
         int[] ints = {12, 34, 678, 3456, 1, 8976};
         int searchValue = 1;
+        // when
         int actual = findLastIndexOfSearchValueInArray(ints, searchValue);
-        int expected = 4;
-        assertEquals(expected, actual);
+        // then
+        assertEquals(4, actual);
     }
 
     @Test
-    void findLastIndexOfSearchValueInArray_whenEmptyArray() {
+    void givenIntArrayAndNotExistingInArrayValue_whenFindLastIndexOfSearchValueInArray_thenReturnMinusOne() {
+        // given
+        int[] ints = {12, 34, 678, 3456, 8976, 12};
+        int searchValue = 1;
+        // when
+        int actual = findLastIndexOfSearchValueInArray(ints, searchValue);
+        // then
+        assertEquals(-1, actual);
+    }
+
+    @Test
+    void givenEmptyIntArrayAndIntValue_whenFindLastIndexOfSearchValueInArray_thenReturnMinusOne() {
+        // given
         int[] ints = {};
         int searchValue = 1;
+        // when
         int actual = findLastIndexOfSearchValueInArray(ints, searchValue);
-        int expected = -1;
-        assertEquals(expected, actual);
+        // then
+        assertEquals(-1, actual);
     }
 
     @Test
-    void calculateFactorial_whenPositiveNumber() {
-        int number = 9;
-        int expected = 362880;
-        int actual = calculateFactorial(number);
-        assertEquals(expected, actual);
+    void givenInt_whenCalculateFactorial_thenReturnFactorial() {
+        // given
+        int natural = 9;
+        // when
+        int actual = calculateFactorial(natural);
+        // then
+        assertEquals(362880, actual);
     }
 
     @Test
-    void calculateFactorial_whenNumberIsZero() {
-        int number = 0;
-        int expected = 1;
-        int actual = calculateFactorial(number);
-        assertEquals(expected, actual);
+    void givenZero_whenCalculateFactorial_thenReturnOne() {
+        // given
+        int natural = 0;
+        // when
+        int actual = calculateFactorial(natural);
+        // then
+        assertEquals(1, actual);
     }
 
     @Test
-    void calculateFactorialRecursive_whenPositiveNumber() {
-        int number = 5;
-        BigInteger expected = BigInteger.valueOf(120);
-        BigInteger actual = calculateFactorialRecursive(number);
-        assertEquals(expected, actual);
+    void givenInt_whenCalculateFactorialRecursive_thenReturnFactorial() {
+        // given
+        int natural = 5;
+        // when
+        BigInteger actual = calculateFactorialRecursive(natural);
+        // then
+        assertEquals(BigInteger.valueOf(120), actual);
     }
 
     @Test
-    void calculateFactorialRecursive_whenNumberIsZero() {
-        int number = 0;
-        BigInteger expected = BigInteger.ONE;
-        BigInteger actual = calculateFactorialRecursive(number);
-        assertEquals(expected, actual);
+    void givenZero_whenCalculateFactorialRecursive_thenReturnOne() {
+        // given
+        int natural = 0;
+        // when
+        BigInteger actual = calculateFactorialRecursive(natural);
+        // then
+        assertEquals(BigInteger.ONE, actual);
     }
 
     @Test
-    void calculateFactorialRecursive_whenLargeNumberInActual() {
-        int number = 100;
-        BigInteger expected = new BigInteger("93326215443944152681699238856266700490715968264381621468592963895217599993229915608941463976156518286253697920827223758251185210916864000000000000000000000000");
-        BigInteger actual = calculateFactorialRecursive(number);
-        assertEquals(expected, actual);
+    void givenInt_whenCalculateFactorialRecursive_thenReturnBigFactorial() {
+        // given
+        int natural = 100;
+        // when
+        BigInteger actual = calculateFactorialRecursive(natural);
+        // then
+        assertEquals(new BigInteger("93326215443944152681699238856266700490715968264381621468592963895217599993229915608941463976156518286253697920827223758251185210916864000000000000000000000000"), actual);
     }
 
     @Test
-    void isLeapYear_whenYearIsLeap() {
+    void givenIntAsLeapYear_whenIsLeapYear_thenReturnTrue() {
+        // given
         int year = 2024;
+        // when
         boolean actual = isLeapYear(year);
+        // then
         assertTrue(actual);
     }
 
     @Test
-    void isLeapYear_whenYearIsNotLeap() {
+    void givenIntAsNotLeapYear_whenIsLeapYear_thenReturnFalse() {
+        // given
         int year = 2023;
+        // when
         boolean actual = isLeapYear(year);
+        // then
         assertFalse(actual);
     }
 
     @Test
-    void isLeapYear_whenYearDivisibleBy100AndNotDivisibleBy400() {
+    void givenIntAsNotLeapYearDivisibleBy100AndNotDivisibleBy400_whenIsLeapYear_thenReturnFalse() {
+        // given
         int year = 1700;
+        // when
         boolean actual = isLeapYear(year);
+        // then
         assertFalse(actual);
     }
 
     @Test
-    public void filterIntArrayMultiples_whenArrayNotEmpty() {
+    void givenIntArrayAndIntDivider_whenFilterIntArrayMultiples_thenReturnExpectedString() {
+        // given
         int[] ints = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-        int number = 2;
-        String expectedOutput = "2" + System.lineSeparator()
-                + "4" + System.lineSeparator()
-                + "6" + System.lineSeparator()
-                + "8" + System.lineSeparator()
-                + "10" + System.lineSeparator();
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        int divider = 2;
+        OutputStream outputStream = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outputStream));
-        filterIntArrayMultiples(ints, number);
-        assertEquals(expectedOutput, outputStream.toString());
+        // when
+        filterIntArrayMultiples(ints, divider);
+        // then
+        assertEquals("2" + System.lineSeparator() + "4" + System.lineSeparator() + "6" + System.lineSeparator() + "8" + System.lineSeparator() + "10" + System.lineSeparator(), outputStream.toString());
     }
 
     @Test
-    public void filterIntArrayMultiples_whenArrayEmpty() {
+    void givenEmptyIntArrayAndDivide_whenFilterIntArrayMultiples_thenReturnExpectedString() {
+        // given
         int[] ints = {};
-        int number = 2;
-        String expectedOutput = "";
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        int divider = 2;
+        OutputStream outputStream = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outputStream));
-        filterIntArrayMultiples(ints, number);
-        assertEquals(expectedOutput, outputStream.toString());
+        // when
+        filterIntArrayMultiples(ints, divider);
+        // then
+        assertEquals("", outputStream.toString());
     }
 
     @Test
-    public void bubbleSortIntArrayInAscendingOrder_whenArrayHasNotDuplicates() {
+    void givenIntArrayWithoutDuplicates_whenBubbleSortIntArrayInAscendingOrder_thenReturnSortedIntArray() {
+        // given
         int[] ints = {5, 2, 8, 1, 7};
-        int[] expected = {1, 2, 5, 7, 8};
+        // when
         bubbleSortIntArrayInAscendingOrder(ints);
-        assertArrayEquals(expected, ints);
+        // then
+        assertArrayEquals(new int[]{1, 2, 5, 7, 8}, ints);
     }
 
     @Test
-    public void bubbleSortIntArrayInAscendingOrder_whenArrayHasDuplicates() {
+    void givenIntArrayWithDuplicates_whenBubbleSortIntArrayInAscendingOrder_thenReturnSortedIntArray() {
+        // given
         int[] ints = {5, 2, 8, 1, 8};
-        int[] expected = {1, 2, 5, 8, 8};
+        // when
         bubbleSortIntArrayInAscendingOrder(ints);
-        assertArrayEquals(expected, ints);
+        // then
+        assertArrayEquals(new int[]{1, 2, 5, 8, 8}, ints);
     }
 
     @Test
-    public void bubbleSortIntArrayInAscendingOrder_whenEmptyArray() {
+    void givenEmptyIntArray_whenBubbleSortIntArrayInAscendingOrder_thenReturnEmptyIntArray() {
+        // given
         int[] ints = {};
-        int[] expected = {};
+        // when
         bubbleSortIntArrayInAscendingOrder(ints);
-        assertArrayEquals(expected, ints);
+        // then
+        assertArrayEquals(new int[]{}, ints);
     }
 
     @Test
-    public void selectionSortIntArrayInAscendingOrder_whenArrayHasDuplicates() {
+    public void givenIntArrayWithDuplicates_whenSelectionSortIntArrayInAscendingOrder_thenReturnSortedIntArray() {
+        // given
         int[] ints = {5, 2, 8, 1, 8};
-        int[] expected = {1, 2, 5, 8, 8};
+        // when
         selectionSortIntArrayInAscendingOrder(ints);
-        assertArrayEquals(expected, ints);
+        // then
+        assertArrayEquals(new int[]{1, 2, 5, 8, 8}, ints);
     }
 
     @Test
-    public void selectionSortIntArrayInAscendingOrder_whenArrayHasNotDuplicates() {
+    void givenIntArrayWithoutDuplicates_whenSelectionSortIntArrayInAscendingOrder_thenReturnSortedIntArray() {
+        // given
         int[] ints = {5, 2, 8, 1, 7};
-        int[] expected = {1, 2, 5, 7, 8};
+        // when
         selectionSortIntArrayInAscendingOrder(ints);
-        assertArrayEquals(expected, ints);
+        // then
+        assertArrayEquals(new int[]{1, 2, 5, 7, 8}, ints);
     }
 
     @Test
-    public void selectionSortIntArrayInAscendingOrder_whenEmptyArray() {
+    void givenEmptyIntArray_whenSelectionSortIntArrayInAscendingOrder_thenReturnEmptyIntArray() {
+        // given
         int[] ints = {};
-        int[] expected = {};
+        // when
         selectionSortIntArrayInAscendingOrder(ints);
-        assertArrayEquals(expected, ints);
+        // then
+        assertArrayEquals(new int[]{}, ints);
     }
 
     @Test
-    public void hasDuplicates_whenDuplicateBytes() {
+    void givenByteArrayWithDuplicates_whenHasDuplicates_thenReturnTrue() {
+        // given
         byte[] bytes = {1, 2, 3, 4, 4, 5};
+        // then
         assertTrue(hasDuplicates(bytes));
     }
 
     @Test
-    public void hasDuplicates_whenNotDuplicateBytes() {
+    void givenByteArrayWithoutDuplicates_whenHasDuplicates_thenReturnFalse() {
+        // given
         byte[] bytes = {1, 2, 3, 4, 6, 5};
+        // then
         assertFalse(hasDuplicates(bytes));
     }
 
     @Test
-    public void hasDuplicates_whenEmptyArray() {
+    void givenEmptyByteArray_whenHasDuplicates_thenReturnFalse() {
+        // given
         byte[] bytes = {};
+        // then
         assertFalse(hasDuplicates(bytes));
     }
 
     @Test
-    void multiplyArrays_whenArraysLengthsAreEqual() {
+    void givenTwoIntArraysWithEqualLength_whenMultiplyArrays_thenReturnMultipliedArray() {
+        // given
         int[] firstIntArray = {1, 2, 3};
         int[] secondIntArray = {4, 5, 6};
-        int[] expected = {4, 10, 18};
+        // when
         int[] actual = multiplyArrays(firstIntArray, secondIntArray);
-        assertArrayEquals(expected, actual);
+        // then
+        assertArrayEquals(new int[]{4, 10, 18}, actual);
     }
 
     @Test
-    void multiplyArrays_whenEmptyArrays() {
+    void givenTwoEmptyIntArrays_whenMultiplyArrays_thenReturnEmptyArray() {
+        // given
         int[] firstIntArray = {};
         int[] secondIntArray = {};
-        int[] expected = {};
+        // when
         int[] actual = multiplyArrays(firstIntArray, secondIntArray);
-        assertArrayEquals(expected, actual);
+        // then
+        assertArrayEquals(new int[]{}, actual);
     }
 
     @Test
-    void findNonMatchingElements_whenArrayLengthEqual() {
+    void givenTwoIntArraysWithEqualLength_whenFindNonMatchingElements_thenReturnArrayWithoutIndexMatchingElements() {
+        // given
         int[] ints1 = {1, 2, 3, 4, 5};
         int[] ints2 = {1, 2, 3, 6, 7};
-        int[] expected = {4, 6, 5, 7};
+        // when
         int[] actual = findNonMatchingElements(ints1, ints2);
-        assertArrayEquals(expected, actual);
+        // then
+        assertArrayEquals(new int[]{4, 6, 5, 7}, actual);
     }
 
     @Test
-    void findNonMatchingElements_whenEmptyArrays() {
+    void givenTwoEmptyIntArrays_whenFindNonMatchingElements_thenReturnEmptyArray() {
+        // given
         int[] ints1 = {};
         int[] ints2 = {};
-        int[] expected = {};
+        // when
         int[] actual = findNonMatchingElements(ints1, ints2);
-        assertArrayEquals(expected, actual);
+        // then
+        assertArrayEquals(new int[]{}, actual);
     }
 
     @Test
-    void findNonMatchingElements_whenFirstEmptyArray() {
+    void givenTwoIntArraysAndFirstIsEmpty_whenFindNonMatchingElements_thenReturnArrayWithoutIndexMatchingElements() {
+        // given
         int[] ints1 = {};
         int[] ints2 = {1, 2, 3};
-        int[] expected = {1, 2, 3};
+        // when
         int[] actual = findNonMatchingElements(ints1, ints2);
-        assertArrayEquals(expected, actual);
+        // then
+        assertArrayEquals(new int[]{1, 2, 3}, actual);
     }
 
     @Test
-    void findNonMatchingElements_whenSecondEmptyArray() {
+    void givenTwoIntArraysAndSecondIsEmpty_whenFindNonMatchingElements_thenReturnArrayWithoutIndexMatchingElements() {
+        // given
         int[] ints1 = {1, 2, 3};
         int[] ints2 = {};
-        int[] expected = {1, 2, 3};
+        // when
         int[] actual = findNonMatchingElements(ints1, ints2);
-        assertArrayEquals(expected, actual);
+        // then
+        assertArrayEquals(new int[]{1, 2, 3}, actual);
     }
 
     @Test
-    void findNonMatchingElements_whenDifferentLengthArrays() {
+    void givenTwoIntArraysWithDifferentLength_whenFindNonMatchingElements_thenReturnArrayWithoutIndexMatchingElements() {
+        // given
         int[] ints1 = {1, 2, 3};
         int[] ints2 = {1, 2, 3, 4, 5};
-        int[] expected = {4, 5};
+        // when
         int[] actual = findNonMatchingElements(ints1, ints2);
-        assertArrayEquals(expected, actual);
+        // then
+        assertArrayEquals(new int[]{4, 5}, actual);
     }
 
     @Test
-    public void reverseIntArray_whenNotEmptyArray() {
+    void givenIntArray_whenReverseIntArray_thenReturnReversedArray() {
+        // given
         int[] input = {1, 2, 3, 4, 5};
-        int[] expected = {5, 4, 3, 2, 1};
+        // when
         int[] actual = reverseIntArray(input);
-        assertArrayEquals(expected, actual);
+        // then
+        assertArrayEquals(new int[]{5, 4, 3, 2, 1}, actual);
     }
 
     @Test
-    public void reverseIntArray_whenEmptyArray() {
+    void givenEmptyIntArray_whenReverseIntArray_thenReturnEmptyArray() {
+        // given
         int[] input = {};
-        int[] expected = {};
+        // when
         int[] actual = reverseIntArray(input);
-        assertArrayEquals(expected, actual);
+        // then
+        assertArrayEquals(new int[]{}, actual);
     }
 
     @Test
-    public void generateRandomArray_whenZeroSize() {
+    void givenThreeIntsAndSizeIsZero_whenGenerateRandomArray_thenReturnZeroSizeIntArray() {
+        // given
         int size = 0;
         int lowerBound = 1;
         int upperBound = 10;
+        // when
         int[] actual = generateRandomArray(size, lowerBound, upperBound);
+        // then
         assertEquals(0, actual.length);
     }
 
     @Test
-    public void generateRandomArray_whenLowerBoundGreaterThanUpperBound() {
+    void givenThreeIntsAndLowerBoundGreaterThenUpperBound_whenGenerateRandomArray_thenReturnZeroSizeIntArray() {
+        // given
         int size = 5;
         int lowerBound = 10;
         int upperBound = 1;
+        // when
         int[] actual = generateRandomArray(size, lowerBound, upperBound);
+        // then
         assertEquals(0, actual.length);
     }
 
     @Test
-    public void generateRandomArray_whenEqualBounds() {
+    void givenThreeIntsAndLowerBoundEqualUpperBound_whenGenerateRandomArray_thenReturnIntArrayWithEqualElements() {
+        // given
         int size = 5;
         int lowerBound = 5;
         int upperBound = 5;
+        // when
         int[] actual = generateRandomArray(size, lowerBound, upperBound);
+        // then
         assertEquals(size, actual.length);
         for (int element : actual) {
             assertEquals(lowerBound, element);
@@ -606,11 +732,14 @@ class TwentyMethodsTest {
     }
 
     @Test
-    public void generateRandomArray_whenUpperBoundGreaterThanLowerBound() {
+    void givenThreeIntsAndUpperBoundGreaterThanLowerBound_whenGenerateRandomArray_thenReturnGeneratedIntArray() {
+        // given
         int size = 5;
         int lowerBound = 1;
         int upperBound = 10;
+        // when
         int[] actual = generateRandomArray(size, lowerBound, upperBound);
+        // then
         assertEquals(size, actual.length);
         for (int element : actual) {
             assertTrue(element >= lowerBound && element <= upperBound);
@@ -618,51 +747,56 @@ class TwentyMethodsTest {
     }
 
     @Test
-    void isCharSubArray_whenFirstArrayIsLonger() {
-        char[] chars1 = {'a', 'b', 'c', 'd', 'e'};
-        char[] chars2 = {'c', 'd'};
-        assertTrue(isCharSubArray(chars1, chars2));
-    }
-
-    @Test
-    void isCharSubArray_whenSecondArrayIsLonger() {
-        char[] chars1 = {'c', 'd'};
-        char[] chars2 = {'a', 'b', 'c', 'd', 'e'};
-        assertTrue(isCharSubArray(chars1, chars2));
-    }
-
-    @Test
-    void isCharSubArray_whenFirstArrayIsEmpty() {
-        char[] chars1 = {};
-        char[] chars2 = {'c', 'd'};
-        assertFalse(isCharSubArray(chars1, chars2));
-    }
-
-    @Test
-    void isCharSubArray_whenSecondArrayIsEmpty() {
-        char[] chars1 = {'c', 'd'};
-        char[] chars2 = {};
-        assertFalse(isCharSubArray(chars1, chars2));
-    }
-
-    @Test
-    void isCharSubArray_whenEqualArrays() {
-        char[] chars1 = {'a', 'b', 'c'};
-        char[] chars2 = {'a', 'b', 'c'};
-        assertTrue(isCharSubArray(chars1, chars2));
-    }
-
-    @Test
-    void isCharSubArray_whenIsSubstring() {
+    void givenTwoCharArraysAndFirstArrayIsLonger_whenIsCharSubArray_thenReturnTrue() {
+        // given
         char[] chars1 = {'a', 'b', 'c', 'd', 'e'};
         char[] chars2 = {'b', 'c', 'd'};
+        // then
         assertTrue(isCharSubArray(chars1, chars2));
     }
 
     @Test
-    void isCharSubArray_whenNotSubstring() {
+    void givenTwoCharArraysAndFirstArrayIsLonger_whenIsCharSubArray_thenReturnFalse() {
+        // given
         char[] chars1 = {'a', 'b', 'c', 'd', 'e'};
         char[] chars2 = {'b', 'd', 'e'};
+        // then
         assertFalse(isCharSubArray(chars1, chars2));
+    }
+
+    @Test
+    void givenTwoCharArraysAndSecondArrayIsLonger_whenIsCharSubArray_thenReturnTrue() {
+        // given
+        char[] chars1 = {'c', 'd'};
+        char[] chars2 = {'a', 'b', 'c', 'd', 'e'};
+        // then
+        assertTrue(isCharSubArray(chars1, chars2));
+    }
+
+    @Test
+    void givenTwoCharArraysAndFirstArrayIsEmpty_whenIsCharSubArray_thenReturnFalse() {
+        // given
+        char[] chars1 = {};
+        char[] chars2 = {'c', 'd'};
+        // then
+        assertFalse(isCharSubArray(chars1, chars2));
+    }
+
+    @Test
+    void givenTwoCharArraysAndSecondArrayIsEmpty_whenIsCharSubArray_thenReturnFalse() {
+        // given
+        char[] chars1 = {'c', 'd'};
+        char[] chars2 = {};
+        // then
+        assertFalse(isCharSubArray(chars1, chars2));
+    }
+
+    @Test
+    void givenTwoCharArraysAndArraysAreEqual_whenIsCharSubArray_thenReturnTrue() {
+        // given
+        char[] chars1 = {'a', 'b', 'c'};
+        char[] chars2 = {'a', 'b', 'c'};
+        // then
+        assertTrue(isCharSubArray(chars1, chars2));
     }
 }

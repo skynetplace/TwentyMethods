@@ -26,45 +26,45 @@ public class TwentyMethods {
     /**
      * 3.1) Принимает 2 инта, а и б, возвращает большее из этих 2х чисел.
      */
-    public static int getMaxInt(int firstNumber, int secondNumber) {
-        return Math.max(firstNumber, secondNumber);
+    public static int getMaxInt(int firstInt, int secondInt) {
+        return Math.max(firstInt, secondInt);
     }
 
     /**
      * 3.2) Принимает 2 инта, а и б, возвращает большее из этих 2х чисел.
      */
-    public static int getMaxIntWithTernary(int firstNumber, int secondNumber) {
-        return (firstNumber >= secondNumber) ? firstNumber : secondNumber;
+    public static int getMaxIntWithTernary(int firstInt, int secondInt) {
+        return (firstInt >= secondInt) ? firstInt : secondInt;
     }
 
     /**
      * 3.3) Принимает 2 инта, а и б, возвращает большее из этих 2х чисел.
      */
-    public static int getMaxIntWithBranching(int firstNumber, int secondNumber) {
-        if (firstNumber >= secondNumber) {
-            return firstNumber;
+    public static int getMaxIntWithBranching(int firstInt, int secondInt) {
+        if (firstInt >= secondInt) {
+            return firstInt;
         }
-        return secondNumber;
+        return secondInt;
     }
 
     /**
      * 4) Принимает 3 инта, возвращает большее из них.
      */
-    public static int getMaxInt(int firstNumber, int secondNumber, int thirdNumber) {
-        if (firstNumber >= secondNumber && firstNumber >= thirdNumber) {
-            return firstNumber;
+    public static int getMaxInt(int firstInt, int secondInt, int thirdInt) {
+        if (firstInt >= secondInt && firstInt >= thirdInt) {
+            return firstInt;
         }
-        if (secondNumber >= firstNumber && secondNumber >= thirdNumber) {
-            return secondNumber;
+        if (secondInt >= firstInt && secondInt >= thirdInt) {
+            return secondInt;
         }
-        return thirdNumber;
+        return thirdInt;
     }
 
     /**
      * 5) принимает 5 интов, возвращает большее из них.
      */
-    public static int getMaxInt(int firstNumber, int secondNumber, int thirdNumber, int fourthNumber, int fifthNumber) {
-        int[] ints = {firstNumber, secondNumber, thirdNumber, fourthNumber, fifthNumber};
+    public static int getMaxInt(int firstInt, int secondInt, int thirdInt, int fourthInt, int fifthInt) {
+        int[] ints = {firstInt, secondInt, thirdInt, fourthInt, fifthInt};
         int maxInt = ints[0];
         for (int i = 1; i < ints.length; i++) {
             if (ints[i] >= maxInt) {
@@ -90,10 +90,10 @@ public class TwentyMethods {
      * Возвращает индекс массива, в котором значение совпадает с передаваемым начиная с начала массива.
      * Если значения в массиве нет - возвращает -1.
      */
-    public static int findFirstIndexOfSearchValueInArray(int[] ints, int searchValue) {
+    public static int findFirstIndexOfSearchValueInArray(int[] ints, int searchInt) {
         int i = 0;
         for (int item : ints) {
-            if (item == searchValue) {
+            if (item == searchInt) {
                 return i;
             }
             i++;
@@ -106,10 +106,10 @@ public class TwentyMethods {
      * в котором значение совпадает с передаваемым начиная с конца массива.
      * Если значения в массиве нет - возвращает -1.
      */
-    public static int findLastIndexOfSearchValueInArray(int[] ints, int searchValue) {
+    public static int findLastIndexOfSearchValueInArray(int[] ints, int searchInt) {
         int index = ints.length - 1;
         for (int i = index; i >= 0; i--) {
-            if (ints[i] == searchValue) {
+            if (ints[i] == searchInt) {
                 return i;
             }
         }
@@ -119,9 +119,9 @@ public class TwentyMethods {
     /**
      * 10.1) Метод принимает инт и возвращает факториал от заданого инта.
      */
-    public static int calculateFactorial(int number) {
+    public static int calculateFactorial(int natural) {
         int factorial = 1;
-        for (int i = number; i > 1; i--) {
+        for (int i = natural; i > 1; i--) {
             factorial *= i;
         }
         return factorial;
@@ -130,12 +130,12 @@ public class TwentyMethods {
     /**
      * 10.2) Метод принимает инт и возвращает факториал от заданого инта.
      */
-    public static BigInteger calculateFactorialRecursive(int number) {
-        if (number == 0) {
+    public static BigInteger calculateFactorialRecursive(int natural) {
+        if (natural == 0) {
             return BigInteger.ONE;
         }
-        BigInteger bigNumber = BigInteger.valueOf(number);
-        return bigNumber.multiply(calculateFactorialRecursive(number - 1));
+        BigInteger bigInt = BigInteger.valueOf(natural);
+        return bigInt.multiply(calculateFactorialRecursive(natural - 1));
     }
 
     /**
@@ -154,9 +154,9 @@ public class TwentyMethods {
     /**
      * 12) Принимает массив интов и число, выводит на екран только елементы массива, которые кратны этому числу.
      */
-    public static void filterIntArrayMultiples(int[] ints, int number) {
+    public static void filterIntArrayMultiples(int[] ints, int divider) {
         for (int element : ints) {
-            if (element % number == 0) {
+            if (element % divider == 0) {
                 System.out.println(element);
             }
         }
