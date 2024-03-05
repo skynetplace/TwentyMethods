@@ -15,11 +15,11 @@ class TwentyMethodsTest {
     @Test
     void givenCharArray_whenPrintCharArray_thenPrintToConsole() {
         // given
-        char[] chars = {'e', 'b', '@', '&', '^'};
+        char[] charArray = {'e', 'b', '@', '&', '^'};
         OutputStream outputStream = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outputStream));
         // when
-        printCharArray(chars);
+        printCharArray(charArray);
         // then
         assertEquals("eb@&^", outputStream.toString());
     }
@@ -27,11 +27,11 @@ class TwentyMethodsTest {
     @Test
     void givenEmptyCharArray_whenPrintCharArray_thenPrintToConsole() {
         // given
-        char[] chars = {};
+        char[] charArray = {};
         OutputStream outputStream = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outputStream));
         // when
-        printCharArray(chars);
+        printCharArray(charArray);
         // then
         assertEquals("", outputStream.toString());
     }
@@ -39,9 +39,9 @@ class TwentyMethodsTest {
     @Test
     void givenIntArray_whenGetCharArrayFromIntArray_thenReturnCharArray() {
         // given
-        int[] ints = {1000, 2000, 3000, 4000, 5000};
+        int[] intArray = {1000, 2000, 3000, 4000, 5000};
         // when
-        char[] actual = getCharArrayFromIntArray(ints);
+        char[] actual = getCharArrayFromIntArray(intArray);
         // then
         assertArrayEquals(new char[]{'Ϩ', 'ߐ', 'ஸ', 'ྠ', 'ᎈ'}, actual);
     }
@@ -49,9 +49,9 @@ class TwentyMethodsTest {
     @Test
     void givenEmptyIntArray_whenGetCharArrayFromIntArray_thenReturnEmptyCharArray() {
         // given
-        int[] ints = {};
+        int[] intArray = {};
         // when
-        char[] actual = getCharArrayFromIntArray(ints);
+        char[] actual = getCharArrayFromIntArray(intArray);
         // then
         assertArrayEquals(new char[]{}, actual);
     }
@@ -290,9 +290,9 @@ class TwentyMethodsTest {
     @Test
     void givenCharArrayWithOneCharacter_whenGetStringFromCharArray_thenReturnStringWithOneCharacter() {
         // given
-        char[] chars = {'$'};
+        char[] charArray = {'$'};
         // when
-        String actual = getStringFromCharArray(chars);
+        String actual = getStringFromCharArray(charArray);
         // then
         assertEquals("$", actual);
     }
@@ -300,9 +300,9 @@ class TwentyMethodsTest {
     @Test
     void givenCharArray_whenGetStringFromCharArray_thenReturnString() {
         // given
-        char[] chars = {'&', '^', '$', '#', '@', '!', '|'};
+        char[] charArray = {'&', '^', '$', '#', '@', '!', '|'};
         // when
-        String actual = getStringFromCharArray(chars);
+        String actual = getStringFromCharArray(charArray);
         // then
         assertEquals("&^$#@!|", actual);
     }
@@ -310,9 +310,9 @@ class TwentyMethodsTest {
     @Test
     void givenEmptyCharArray_whenGetStringFromCharArray_thenReturnExpectedString() {
         // given
-        char[] chars = {};
+        char[] charArray = {};
         // when
-        String actual = getStringFromCharArray(chars);
+        String actual = getStringFromCharArray(charArray);
         // then
         assertEquals("", actual);
     }
@@ -320,10 +320,10 @@ class TwentyMethodsTest {
     @Test
     void givenIntArrayAndExistingInArrayWithDuplicatesValue_whenFindFirstIndexOfSearchValueInArray_thenReturnFirstIndexOfSearchValue() {
         // given
-        int[] ints = {12, 34, 678, 3456, 1, 8976, 12};
-        int searchValue = 12;
+        int[] intArray = {12, 34, 678, 3456, 1, 8976, 12};
+        int searchInt = 12;
         // when
-        int actual = findFirstIndexOfSearchValueInArray(ints, searchValue);
+        int actual = findFirstIndexOfSearchValueInArray(intArray, searchInt);
         // then
         assertEquals(0, actual);
     }
@@ -331,10 +331,10 @@ class TwentyMethodsTest {
     @Test
     void givenIntArrayAndExistingInArrayWithoutDuplicatesValue_whenFindFirstIndexOfSearchValueInArray_thenReturnFirstIndexOfSearchValue() {
         // given
-        int[] ints = {12, 34, 678, 3456, 1, 8976};
-        int searchValue = 1;
+        int[] intArray = {12, 34, 678, 3456, 1, 8976};
+        int searchInt = 1;
         // when
-        int actual = findFirstIndexOfSearchValueInArray(ints, searchValue);
+        int actual = findFirstIndexOfSearchValueInArray(intArray, searchInt);
         // then
         assertEquals(4, actual);
     }
@@ -342,10 +342,10 @@ class TwentyMethodsTest {
     @Test
     void givenIntArrayAndNotExistingInArrayValue_whenFindFirstIndexOfSearchValueInArray_thenReturnMinusOne() {
         // given
-        int[] ints = {12, 34, 678, 3456, 8976, 12};
-        int searchValue = 1;
+        int[] intArray = {12, 34, 678, 3456, 8976, 12};
+        int searchInt = 1;
         // when
-        int actual = findFirstIndexOfSearchValueInArray(ints, searchValue);
+        int actual = findFirstIndexOfSearchValueInArray(intArray, searchInt);
         // then
         assertEquals(-1, actual);
     }
@@ -353,10 +353,10 @@ class TwentyMethodsTest {
     @Test
     void givenEmptyIntArrayAndIntValue_whenFindFirstIndexOfSearchValueInArray_thenReturnMinusOne() {
         // given
-        int[] ints = {};
-        int searchValue = 1;
+        int[] intArray = {};
+        int searchInt = 1;
         // when
-        int actual = findFirstIndexOfSearchValueInArray(ints, searchValue);
+        int actual = findFirstIndexOfSearchValueInArray(intArray, searchInt);
         // then
         assertEquals(-1, actual);
     }
@@ -364,10 +364,10 @@ class TwentyMethodsTest {
     @Test
     void givenIntArrayAndExistingInArrayWithDuplicatesValue_whenFindLastIndexOfSearchValueInArray_thenReturnLastIndexOfSearchValue() {
         // given
-        int[] ints = {12, 34, 678, 3456, 1, 8976, 12};
-        int searchValue = 12;
+        int[] intArray = {12, 34, 678, 3456, 1, 8976, 12};
+        int searchInt = 12;
         // when
-        int actual = findLastIndexOfSearchValueInArray(ints, searchValue);
+        int actual = findLastIndexOfSearchValueInArray(intArray, searchInt);
         // then
         assertEquals(6, actual);
     }
@@ -375,10 +375,10 @@ class TwentyMethodsTest {
     @Test
     void givenIntArrayAndExistingInArrayWithoutDuplicatesValue_whenFindLastIndexOfSearchValueInArray_thenReturnLastIndexOfSearchValue() {
         // given
-        int[] ints = {12, 34, 678, 3456, 1, 8976};
-        int searchValue = 1;
+        int[] intArray = {12, 34, 678, 3456, 1, 8976};
+        int searchInt = 1;
         // when
-        int actual = findLastIndexOfSearchValueInArray(ints, searchValue);
+        int actual = findLastIndexOfSearchValueInArray(intArray, searchInt);
         // then
         assertEquals(4, actual);
     }
@@ -386,10 +386,10 @@ class TwentyMethodsTest {
     @Test
     void givenIntArrayAndNotExistingInArrayValue_whenFindLastIndexOfSearchValueInArray_thenReturnMinusOne() {
         // given
-        int[] ints = {12, 34, 678, 3456, 8976, 12};
-        int searchValue = 1;
+        int[] intArray = {12, 34, 678, 3456, 8976, 12};
+        int searchInt = 1;
         // when
-        int actual = findLastIndexOfSearchValueInArray(ints, searchValue);
+        int actual = findLastIndexOfSearchValueInArray(intArray, searchInt);
         // then
         assertEquals(-1, actual);
     }
@@ -397,10 +397,10 @@ class TwentyMethodsTest {
     @Test
     void givenEmptyIntArrayAndIntValue_whenFindLastIndexOfSearchValueInArray_thenReturnMinusOne() {
         // given
-        int[] ints = {};
-        int searchValue = 1;
+        int[] intArray = {};
+        int searchInt = 1;
         // when
-        int actual = findLastIndexOfSearchValueInArray(ints, searchValue);
+        int actual = findLastIndexOfSearchValueInArray(intArray, searchInt);
         // then
         assertEquals(-1, actual);
     }
@@ -410,9 +410,17 @@ class TwentyMethodsTest {
         // given
         int natural = 9;
         // when
-        int actual = calculateFactorial(natural);
+        BigInteger actual = calculateFactorial(natural);
         // then
-        assertEquals(362880, actual);
+        assertEquals(BigInteger.valueOf(362880), actual);
+    }
+
+    @Test
+    void givenIntLessZero_whenCalculateFactorial_thenThrowIllegalArgumentException() {
+        // given
+        int natural = -9;
+        // then
+        assertThrows(IllegalArgumentException.class, () -> calculateFactorial(natural));
     }
 
     @Test
@@ -420,9 +428,9 @@ class TwentyMethodsTest {
         // given
         int natural = 0;
         // when
-        int actual = calculateFactorial(natural);
+        BigInteger actual = calculateFactorial(natural);
         // then
-        assertEquals(1, actual);
+        assertEquals(BigInteger.ONE, actual);
     }
 
     @Test
@@ -433,6 +441,14 @@ class TwentyMethodsTest {
         BigInteger actual = calculateFactorialRecursive(natural);
         // then
         assertEquals(BigInteger.valueOf(120), actual);
+    }
+
+    @Test
+    void givenIntLessZero_whenCalculateFactorialRecursive_thenThrowIllegalArgumentException() {
+        // given
+        int natural = -9;
+        // then
+        assertThrows(IllegalArgumentException.class, () -> calculateFactorialRecursive(natural));
     }
 
     @Test
@@ -452,7 +468,8 @@ class TwentyMethodsTest {
         // when
         BigInteger actual = calculateFactorialRecursive(natural);
         // then
-        assertEquals(new BigInteger("93326215443944152681699238856266700490715968264381621468592963895217599993229915608941463976156518286253697920827223758251185210916864000000000000000000000000"), actual);
+        BigInteger expected = calculateFactorialRecursive(99).multiply(BigInteger.valueOf(100));
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -476,6 +493,14 @@ class TwentyMethodsTest {
     }
 
     @Test
+    void givenIntAsNotLeapYear_whenIsLeapYear_thenThrowIllegalArgumentException() {
+        // given
+        int year = 456;
+        // then
+        assertThrows(IllegalArgumentException.class, () -> isLeapYear(year));
+    }
+
+    @Test
     void givenIntAsNotLeapYearDivisibleBy100AndNotDivisibleBy400_whenIsLeapYear_thenReturnFalse() {
         // given
         int year = 1700;
@@ -488,25 +513,36 @@ class TwentyMethodsTest {
     @Test
     void givenIntArrayAndIntDivider_whenFilterIntArrayMultiples_thenReturnExpectedString() {
         // given
-        int[] ints = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        int[] intArray = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
         int divider = 2;
         OutputStream outputStream = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outputStream));
         // when
-        filterIntArrayMultiples(ints, divider);
+        filterIntArrayMultiples(intArray, divider);
         // then
         assertEquals("2" + System.lineSeparator() + "4" + System.lineSeparator() + "6" + System.lineSeparator() + "8" + System.lineSeparator() + "10" + System.lineSeparator(), outputStream.toString());
     }
 
     @Test
+    void givenIntArrayAndDividerIsZero_whenFilterIntArrayMultiples_thenThrowArithmeticException() {
+        // given
+        int[] intArray = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        int divider = 0;
+        OutputStream outputStream = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outputStream));
+        // then
+        assertThrows(ArithmeticException.class, () -> filterIntArrayMultiples(intArray, divider));
+    }
+
+    @Test
     void givenEmptyIntArrayAndDivide_whenFilterIntArrayMultiples_thenReturnExpectedString() {
         // given
-        int[] ints = {};
+        int[] intArray = {};
         int divider = 2;
         OutputStream outputStream = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outputStream));
         // when
-        filterIntArrayMultiples(ints, divider);
+        filterIntArrayMultiples(intArray, divider);
         // then
         assertEquals("", outputStream.toString());
     }
@@ -514,85 +550,85 @@ class TwentyMethodsTest {
     @Test
     void givenIntArrayWithoutDuplicates_whenBubbleSortIntArrayInAscendingOrder_thenReturnSortedIntArray() {
         // given
-        int[] ints = {5, 2, 8, 1, 7};
+        int[] intArray = {5, 2, 8, 1, 7};
         // when
-        bubbleSortIntArrayInAscendingOrder(ints);
+        bubbleSortIntArrayInAscendingOrder(intArray);
         // then
-        assertArrayEquals(new int[]{1, 2, 5, 7, 8}, ints);
+        assertArrayEquals(new int[]{1, 2, 5, 7, 8}, intArray);
     }
 
     @Test
     void givenIntArrayWithDuplicates_whenBubbleSortIntArrayInAscendingOrder_thenReturnSortedIntArray() {
         // given
-        int[] ints = {5, 2, 8, 1, 8};
+        int[] intArray = {5, 2, 8, 1, 8};
         // when
-        bubbleSortIntArrayInAscendingOrder(ints);
+        bubbleSortIntArrayInAscendingOrder(intArray);
         // then
-        assertArrayEquals(new int[]{1, 2, 5, 8, 8}, ints);
+        assertArrayEquals(new int[]{1, 2, 5, 8, 8}, intArray);
     }
 
     @Test
     void givenEmptyIntArray_whenBubbleSortIntArrayInAscendingOrder_thenReturnEmptyIntArray() {
         // given
-        int[] ints = {};
+        int[] intArray = {};
         // when
-        bubbleSortIntArrayInAscendingOrder(ints);
+        bubbleSortIntArrayInAscendingOrder(intArray);
         // then
-        assertArrayEquals(new int[]{}, ints);
+        assertArrayEquals(new int[]{}, intArray);
     }
 
     @Test
     public void givenIntArrayWithDuplicates_whenSelectionSortIntArrayInAscendingOrder_thenReturnSortedIntArray() {
         // given
-        int[] ints = {5, 2, 8, 1, 8};
+        int[] intArray = {5, 2, 8, 1, 8};
         // when
-        selectionSortIntArrayInAscendingOrder(ints);
+        selectionSortIntArrayInAscendingOrder(intArray);
         // then
-        assertArrayEquals(new int[]{1, 2, 5, 8, 8}, ints);
+        assertArrayEquals(new int[]{1, 2, 5, 8, 8}, intArray);
     }
 
     @Test
     void givenIntArrayWithoutDuplicates_whenSelectionSortIntArrayInAscendingOrder_thenReturnSortedIntArray() {
         // given
-        int[] ints = {5, 2, 8, 1, 7};
+        int[] intArray = {5, 2, 8, 1, 7};
         // when
-        selectionSortIntArrayInAscendingOrder(ints);
+        selectionSortIntArrayInAscendingOrder(intArray);
         // then
-        assertArrayEquals(new int[]{1, 2, 5, 7, 8}, ints);
+        assertArrayEquals(new int[]{1, 2, 5, 7, 8}, intArray);
     }
 
     @Test
     void givenEmptyIntArray_whenSelectionSortIntArrayInAscendingOrder_thenReturnEmptyIntArray() {
         // given
-        int[] ints = {};
+        int[] intArray = {};
         // when
-        selectionSortIntArrayInAscendingOrder(ints);
+        selectionSortIntArrayInAscendingOrder(intArray);
         // then
-        assertArrayEquals(new int[]{}, ints);
+        assertArrayEquals(new int[]{}, intArray);
     }
 
     @Test
     void givenByteArrayWithDuplicates_whenHasDuplicates_thenReturnTrue() {
         // given
-        byte[] bytes = {1, 2, 3, 4, 4, 5};
+        byte[] byteArray = {1, 2, 3, 4, 4, 5};
         // then
-        assertTrue(hasDuplicates(bytes));
+        assertTrue(hasDuplicates(byteArray));
     }
 
     @Test
     void givenByteArrayWithoutDuplicates_whenHasDuplicates_thenReturnFalse() {
         // given
-        byte[] bytes = {1, 2, 3, 4, 6, 5};
+        byte[] byteArray = {1, 2, 3, 4, 6, 5};
         // then
-        assertFalse(hasDuplicates(bytes));
+        assertFalse(hasDuplicates(byteArray));
     }
 
     @Test
     void givenEmptyByteArray_whenHasDuplicates_thenReturnFalse() {
         // given
-        byte[] bytes = {};
+        byte[] byteArray = {};
         // then
-        assertFalse(hasDuplicates(bytes));
+        assertFalse(hasDuplicates(byteArray));
     }
 
     @Test
@@ -604,6 +640,15 @@ class TwentyMethodsTest {
         int[] actual = multiplyArrays(firstIntArray, secondIntArray);
         // then
         assertArrayEquals(new int[]{4, 10, 18}, actual);
+    }
+
+    @Test
+    void givenTwoIntArraysWithNotEqualLength_whenMultiplyArrays_thenThrowIllegalArgumentException() {
+        // given
+        int[] firstIntArray = {1, 2, 3};
+        int[] secondIntArray = {4, 6};
+        // then
+        assertThrows(IllegalArgumentException.class, () -> multiplyArrays(firstIntArray, secondIntArray));
     }
 
     @Test
@@ -620,10 +665,10 @@ class TwentyMethodsTest {
     @Test
     void givenTwoIntArraysWithEqualLength_whenFindNonMatchingElements_thenReturnArrayWithoutIndexMatchingElements() {
         // given
-        int[] ints1 = {1, 2, 3, 4, 5};
-        int[] ints2 = {1, 2, 3, 6, 7};
+        int[] firstIntArray = {1, 2, 3, 4, 5};
+        int[] secondIntArray = {1, 2, 3, 6, 7};
         // when
-        int[] actual = findNonMatchingElements(ints1, ints2);
+        int[] actual = findNonMatchingElements(firstIntArray, secondIntArray);
         // then
         assertArrayEquals(new int[]{4, 6, 5, 7}, actual);
     }
@@ -631,10 +676,10 @@ class TwentyMethodsTest {
     @Test
     void givenTwoEmptyIntArrays_whenFindNonMatchingElements_thenReturnEmptyArray() {
         // given
-        int[] ints1 = {};
-        int[] ints2 = {};
+        int[] firstIntArray = {};
+        int[] secondIntArray = {};
         // when
-        int[] actual = findNonMatchingElements(ints1, ints2);
+        int[] actual = findNonMatchingElements(firstIntArray, secondIntArray);
         // then
         assertArrayEquals(new int[]{}, actual);
     }
@@ -642,10 +687,10 @@ class TwentyMethodsTest {
     @Test
     void givenTwoIntArraysAndFirstIsEmpty_whenFindNonMatchingElements_thenReturnArrayWithoutIndexMatchingElements() {
         // given
-        int[] ints1 = {};
-        int[] ints2 = {1, 2, 3};
+        int[] firstIntArray = {};
+        int[] secondIntArray = {1, 2, 3};
         // when
-        int[] actual = findNonMatchingElements(ints1, ints2);
+        int[] actual = findNonMatchingElements(firstIntArray, secondIntArray);
         // then
         assertArrayEquals(new int[]{1, 2, 3}, actual);
     }
@@ -653,10 +698,10 @@ class TwentyMethodsTest {
     @Test
     void givenTwoIntArraysAndSecondIsEmpty_whenFindNonMatchingElements_thenReturnArrayWithoutIndexMatchingElements() {
         // given
-        int[] ints1 = {1, 2, 3};
-        int[] ints2 = {};
+        int[] firstIntArray = {1, 2, 3};
+        int[] secondIntArray = {};
         // when
-        int[] actual = findNonMatchingElements(ints1, ints2);
+        int[] actual = findNonMatchingElements(firstIntArray, secondIntArray);
         // then
         assertArrayEquals(new int[]{1, 2, 3}, actual);
     }
@@ -664,10 +709,10 @@ class TwentyMethodsTest {
     @Test
     void givenTwoIntArraysWithDifferentLength_whenFindNonMatchingElements_thenReturnArrayWithoutIndexMatchingElements() {
         // given
-        int[] ints1 = {1, 2, 3};
-        int[] ints2 = {1, 2, 3, 4, 5};
+        int[] firstIntArray = {1, 2, 3};
+        int[] secondIntArray = {1, 2, 3, 4, 5};
         // when
-        int[] actual = findNonMatchingElements(ints1, ints2);
+        int[] actual = findNonMatchingElements(firstIntArray, secondIntArray);
         // then
         assertArrayEquals(new int[]{4, 5}, actual);
     }
@@ -675,9 +720,9 @@ class TwentyMethodsTest {
     @Test
     void givenIntArray_whenReverseIntArray_thenReturnReversedArray() {
         // given
-        int[] input = {1, 2, 3, 4, 5};
+        int[] intArray = {1, 2, 3, 4, 5};
         // when
-        int[] actual = reverseIntArray(input);
+        int[] actual = reverseIntArray(intArray);
         // then
         assertArrayEquals(new int[]{5, 4, 3, 2, 1}, actual);
     }
@@ -685,35 +730,31 @@ class TwentyMethodsTest {
     @Test
     void givenEmptyIntArray_whenReverseIntArray_thenReturnEmptyArray() {
         // given
-        int[] input = {};
+        int[] intArray = {};
         // when
-        int[] actual = reverseIntArray(input);
+        int[] actual = reverseIntArray(intArray);
         // then
         assertArrayEquals(new int[]{}, actual);
     }
 
     @Test
-    void givenThreeIntsAndSizeIsZero_whenGenerateRandomArray_thenReturnZeroSizeIntArray() {
+    void givenThreeIntsAndSizeIsZero_whenGenerateRandomArray_thenThrowIllegalArgumentException() {
         // given
         int size = 0;
         int lowerBound = 1;
         int upperBound = 10;
-        // when
-        int[] actual = generateRandomArray(size, lowerBound, upperBound);
         // then
-        assertEquals(0, actual.length);
+        assertThrows(IllegalArgumentException.class, () -> generateRandomArray(size, lowerBound, upperBound));
     }
 
     @Test
-    void givenThreeIntsAndLowerBoundGreaterThenUpperBound_whenGenerateRandomArray_thenReturnZeroSizeIntArray() {
+    void givenThreeIntsAndLowerBoundGreaterThenUpperBound_whenGenerateRandomArray_thenThrowIllegalArgumentException() {
         // given
         int size = 5;
         int lowerBound = 10;
         int upperBound = 1;
-        // when
-        int[] actual = generateRandomArray(size, lowerBound, upperBound);
         // then
-        assertEquals(0, actual.length);
+        assertThrows(IllegalArgumentException.class, () -> generateRandomArray(size, lowerBound, upperBound));
     }
 
     @Test
@@ -749,54 +790,54 @@ class TwentyMethodsTest {
     @Test
     void givenTwoCharArraysAndFirstArrayIsLonger_whenIsCharSubArray_thenReturnTrue() {
         // given
-        char[] chars1 = {'a', 'b', 'c', 'd', 'e'};
-        char[] chars2 = {'b', 'c', 'd'};
+        char[] firstCharArray = {'a', 'b', 'c', 'd', 'e'};
+        char[] secondCharArray = {'b', 'c', 'd'};
         // then
-        assertTrue(isCharSubArray(chars1, chars2));
+        assertTrue(isCharSubArray(firstCharArray, secondCharArray));
     }
 
     @Test
     void givenTwoCharArraysAndFirstArrayIsLonger_whenIsCharSubArray_thenReturnFalse() {
         // given
-        char[] chars1 = {'a', 'b', 'c', 'd', 'e'};
-        char[] chars2 = {'b', 'd', 'e'};
+        char[] firstCharArray = {'a', 'b', 'c', 'd', 'e'};
+        char[] secondCharArray = {'b', 'd', 'e'};
         // then
-        assertFalse(isCharSubArray(chars1, chars2));
+        assertFalse(isCharSubArray(firstCharArray, secondCharArray));
     }
 
     @Test
     void givenTwoCharArraysAndSecondArrayIsLonger_whenIsCharSubArray_thenReturnTrue() {
         // given
-        char[] chars1 = {'c', 'd'};
-        char[] chars2 = {'a', 'b', 'c', 'd', 'e'};
+        char[] firstCharArray = {'c', 'd'};
+        char[] secondCharArray = {'a', 'b', 'c', 'd', 'e'};
         // then
-        assertTrue(isCharSubArray(chars1, chars2));
+        assertTrue(isCharSubArray(firstCharArray, secondCharArray));
     }
 
     @Test
-    void givenTwoCharArraysAndFirstArrayIsEmpty_whenIsCharSubArray_thenReturnFalse() {
+    void givenTwoCharArraysAndFirstArrayIsEmpty_whenIsCharSubArray_thenThrowIllegalArgumentException() {
         // given
-        char[] chars1 = {};
-        char[] chars2 = {'c', 'd'};
+        char[] firstCharArray = {};
+        char[] secondCharArray = {'c', 'd'};
         // then
-        assertFalse(isCharSubArray(chars1, chars2));
+        assertThrows(IllegalArgumentException.class, () -> isCharSubArray(firstCharArray, secondCharArray));
     }
 
     @Test
-    void givenTwoCharArraysAndSecondArrayIsEmpty_whenIsCharSubArray_thenReturnFalse() {
+    void givenTwoCharArraysAndSecondArrayIsEmpty_whenIsCharSubArray_thenThrowIllegalArgumentException() {
         // given
-        char[] chars1 = {'c', 'd'};
-        char[] chars2 = {};
+        char[] firstCharArray = {'c', 'd'};
+        char[] secondCharArray = {};
         // then
-        assertFalse(isCharSubArray(chars1, chars2));
+        assertThrows(IllegalArgumentException.class, () -> isCharSubArray(firstCharArray, secondCharArray));
     }
 
     @Test
     void givenTwoCharArraysAndArraysAreEqual_whenIsCharSubArray_thenReturnTrue() {
         // given
-        char[] chars1 = {'a', 'b', 'c'};
-        char[] chars2 = {'a', 'b', 'c'};
+        char[] firstCharArray = {'a', 'b', 'c'};
+        char[] secondCharArray = {'a', 'b', 'c'};
         // then
-        assertTrue(isCharSubArray(chars1, chars2));
+        assertTrue(isCharSubArray(firstCharArray, secondCharArray));
     }
 }
