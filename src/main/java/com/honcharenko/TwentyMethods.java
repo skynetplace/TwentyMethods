@@ -7,68 +7,68 @@ public class TwentyMethods {
     /**
      * 1) Принимает массив чаров, выводит его на экран.
      */
-    public static void printCharArray(char[] chars) {
-        System.out.println(chars);
+    public static void printCharArray(char[] charArray) {
+        System.out.print(charArray);
     }
 
     /**
      * 2) Принимает массив интов, возвращает массив чаров,
      * каждый символ в позиции массива соответствует коду символа передаваемого инта.
      */
-    public static char[] getCharArrayFromIntArray(int[] ints) {
-        char[] chars = new char[ints.length];
-        for (int i = 0; i < ints.length; i++) {
-            chars[i] = (char) ints[i];
+    public static char[] getCharArrayFromIntArray(int[] intArray) {
+        char[] charArray = new char[intArray.length];
+        for (int i = 0; i < intArray.length; i++) {
+            charArray[i] = (char) intArray[i];
         }
-        return chars;
+        return charArray;
     }
 
     /**
      * 3.1) Принимает 2 инта, а и б, возвращает большее из этих 2х чисел.
      */
-    public static int getMaxInt(int firstNumber, int secondNumber) {
-        return Math.max(firstNumber, secondNumber);
+    public static int getMaxInt(int firstInt, int secondInt) {
+        return Math.max(firstInt, secondInt);
     }
 
     /**
      * 3.2) Принимает 2 инта, а и б, возвращает большее из этих 2х чисел.
      */
-    public static int getMaxIntWithTernary(int firstNumber, int secondNumber) {
-        return (firstNumber >= secondNumber) ? firstNumber : secondNumber;
+    public static int getMaxIntWithTernary(int firstInt, int secondInt) {
+        return (firstInt >= secondInt) ? firstInt : secondInt;
     }
 
     /**
      * 3.3) Принимает 2 инта, а и б, возвращает большее из этих 2х чисел.
      */
-    public static int getMaxIntWithBranching(int firstNumber, int secondNumber) {
-        if (firstNumber >= secondNumber) {
-            return firstNumber;
+    public static int getMaxIntWithBranching(int firstInt, int secondInt) {
+        if (firstInt >= secondInt) {
+            return firstInt;
         }
-        return secondNumber;
+        return secondInt;
     }
 
     /**
      * 4) Принимает 3 инта, возвращает большее из них.
      */
-    public static int getMaxInt(int firstNumber, int secondNumber, int thirdNumber) {
-        if (firstNumber >= secondNumber && firstNumber >= thirdNumber) {
-            return firstNumber;
+    public static int getMaxInt(int firstInt, int secondInt, int thirdInt) {
+        if (firstInt >= secondInt && firstInt >= thirdInt) {
+            return firstInt;
         }
-        if (secondNumber >= firstNumber && secondNumber >= thirdNumber) {
-            return secondNumber;
+        if (secondInt >= firstInt && secondInt >= thirdInt) {
+            return secondInt;
         }
-        return thirdNumber;
+        return thirdInt;
     }
 
     /**
      * 5) принимает 5 интов, возвращает большее из них.
      */
-    public static int getMaxInt(int firstNumber, int secondNumber, int thirdNumber, int fourthNumber, int fifthNumber) {
-        int[] ints = {firstNumber, secondNumber, thirdNumber, fourthNumber, fifthNumber};
-        int maxInt = ints[0];
-        for (int i = 1; i < ints.length; i++) {
-            if (ints[i] >= maxInt) {
-                maxInt = ints[i];
+    public static int getMaxInt(int firstInt, int secondInt, int thirdInt, int fourthInt, int fifthInt) {
+        int[] intArray = {firstInt, secondInt, thirdInt, fourthInt, fifthInt};
+        int maxInt = intArray[0];
+        for (int i = 1; i < intArray.length; i++) {
+            if (intArray[i] >= maxInt) {
+                maxInt = intArray[i];
             }
         }
         return maxInt;
@@ -77,12 +77,12 @@ public class TwentyMethods {
     /**
      * 6) Принимает массив чаров, возвращает строку состоящую из символов массива.
      */
-    public static String getStringFromCharArray(char[] chars) {
-        String string = "";
-        for (char item : chars) {
-            string += item;
+    public static String getStringFromCharArray(char[] charArray) {
+        StringBuilder string = new StringBuilder();
+        for (char element : charArray) {
+            string.append(element);
         }
-        return string;
+        return string.toString();
     }
 
     /**
@@ -90,10 +90,10 @@ public class TwentyMethods {
      * Возвращает индекс массива, в котором значение совпадает с передаваемым начиная с начала массива.
      * Если значения в массиве нет - возвращает -1.
      */
-    public static int findFirstIndexOfSearchingValueInArray(int[] ints, int searchValue) {
+    public static int findFirstIndexOfSearchValueInArray(int[] intArray, int searchInt) {
         int i = 0;
-        for (int item : ints) {
-            if (item == searchValue) {
+        for (int element : intArray) {
+            if (element == searchInt) {
                 return i;
             }
             i++;
@@ -106,10 +106,10 @@ public class TwentyMethods {
      * в котором значение совпадает с передаваемым начиная с конца массива.
      * Если значения в массиве нет - возвращает -1.
      */
-    public static int findLastIndexOfSearchingValueInArray(int[] ints, int searchValue) {
-        int index = ints.length - 1;
+    public static int findLastIndexOfSearchValueInArray(int[] intArray, int searchInt) {
+        int index = intArray.length - 1;
         for (int i = index; i >= 0; i--) {
-            if (ints[i] == searchValue) {
+            if (intArray[i] == searchInt) {
                 return i;
             }
         }
@@ -119,10 +119,13 @@ public class TwentyMethods {
     /**
      * 10.1) Метод принимает инт и возвращает факториал от заданого инта.
      */
-    public static int calculateFactorial(int number) {
-        int factorial = 1;
-        for (int i = number; i > 1; i--) {
-            factorial *= i;
+    public static BigInteger calculateFactorial(int natural) throws IllegalArgumentException {
+        if (natural < 0) {
+            throw new IllegalArgumentException("Input argument: " + natural + "must be natural number.");
+        }
+        BigInteger factorial = BigInteger.ONE;
+        for (int i = natural; i > 1; i--) {
+            factorial = factorial.multiply(BigInteger.valueOf(i));
         }
         return factorial;
     }
@@ -130,33 +133,44 @@ public class TwentyMethods {
     /**
      * 10.2) Метод принимает инт и возвращает факториал от заданого инта.
      */
-    public static BigInteger calculateFactorialRecursive(int number) {
-        if (number == 0) {
+    public static BigInteger calculateFactorialRecursive(int natural) throws IllegalArgumentException {
+        if (natural < 0) {
+            throw new IllegalArgumentException("Input argument: " + natural + "must be natural number.");
+        }
+        if (natural == 0) {
             return BigInteger.ONE;
         }
-        BigInteger bigNumber = BigInteger.valueOf(number);
-        return bigNumber.multiply(calculateFactorialRecursive(number - 1));
+        BigInteger bigInt = BigInteger.valueOf(natural);
+        return bigInt.multiply(calculateFactorialRecursive(natural - 1));
     }
 
     /**
      * 11) Принимает инт год и возвращает тру, если год высокосный.
      */
-    public static boolean isLeapYear(int year) {
-        if (year % 4 == 0) {
-            if (year % 100 == 0) {
-                return year % 400 == 0;
-            }
+    public static boolean isLeapYear(int year) throws IllegalArgumentException {
+        if (year < 1582) {
+            throw new IllegalArgumentException("Year: " + year + ". " +
+                    "The logic for calculating leap years was changed in 1582 and is not valid for smaller years." +
+                    " Input year more then 1582.");
+        }
+        if (year % 4 != 0) {
+            return false;
+        }
+        if (year % 100 != 0) {
             return true;
         }
-        return false;
+        return year % 400 == 0;
     }
 
     /**
      * 12) Принимает массив интов и число, выводит на екран только елементы массива, которые кратны этому числу.
      */
-    public static void filterIntArrayMultiples(int[] ints, int number) {
-        for (int element : ints) {
-            if (element % number == 0) {
+    public static void filterIntArrayMultiples(int[] intArray, int divider) throws ArithmeticException {
+        if (divider == 0) {
+            throw new ArithmeticException("Dividing by zero!");
+        }
+        for (int element : intArray) {
+            if (element % divider == 0) {
                 System.out.println(element);
             }
         }
@@ -165,13 +179,13 @@ public class TwentyMethods {
     /**
      * 13.1) Метод принимает массив интов, сортирует его по возрастанию.
      */
-    public static void bubbleSortIntArrayInAscendingOrder(int[] ints) {
-        for (int i = 0; i < ints.length - 1; i++) {
-            for (int j = 0; j < ints.length - i - 1; j++) {
-                if (ints[j] > ints[j + 1]) {
-                    int temp = ints[j];
-                    ints[j] = ints[j + 1];
-                    ints[j + 1] = temp;
+    public static void bubbleSortIntArrayInAscendingOrder(int[] intArray) {
+        for (int i = 0; i < intArray.length - 1; i++) {
+            for (int j = 0; j < intArray.length - i - 1; j++) {
+                if (intArray[j] > intArray[j + 1]) {
+                    int temp = intArray[j];
+                    intArray[j] = intArray[j + 1];
+                    intArray[j + 1] = temp;
                 }
             }
         }
@@ -180,27 +194,27 @@ public class TwentyMethods {
     /**
      * 13.2) Метод принимает массив интов, сортирует его по возрастанию.
      */
-    public static void selectionSortIntArrayInAscendingOrder(int[] ints) {
-        for (int i = 0; i < ints.length - 1; i++) {
+    public static void selectionSortIntArrayInAscendingOrder(int[] intArray) {
+        for (int i = 0; i < intArray.length - 1; i++) {
             int indexOfMin = i;
-            for (int j = i + 1; j < ints.length; j++) {
-                if (ints[j] < ints[indexOfMin]) {
+            for (int j = i + 1; j < intArray.length; j++) {
+                if (intArray[j] < intArray[indexOfMin]) {
                     indexOfMin = j;
                 }
             }
-            int temp = ints[indexOfMin];
-            ints[indexOfMin] = ints[i];
-            ints[i] = temp;
+            int temp = intArray[indexOfMin];
+            intArray[indexOfMin] = intArray[i];
+            intArray[i] = temp;
         }
     }
 
     /**
      * 14) Принимает массив байт. Если в массиве есть повторяющиеся елементы - возвращает тру.
      */
-    public static boolean hasDuplicates(byte[] bytes) {
-        for (int i = 0; i < bytes.length; i++) {
-            for (int j = i + 1; j < bytes.length; j++) {
-                if (bytes[i] == bytes[j]) {
+    public static boolean hasDuplicates(byte[] byteArray) {
+        for (int i = 0; i < byteArray.length; i++) {
+            for (int j = i + 1; j < byteArray.length; j++) {
+                if (byteArray[i] == byteArray[j]) {
                     return true;
                 }
             }
@@ -212,7 +226,10 @@ public class TwentyMethods {
      * 15) Принимает два массива интов одинаковых по длинне, возращает массив интов,
      * который состоит из перемноженных елементов входящих массивов.
      */
-    public static int[] multiplyArrays(int[] firstIntArray, int[] secondIntArray) {
+    public static int[] multiplyArrays(int[] firstIntArray, int[] secondIntArray) throws IllegalArgumentException {
+        if (firstIntArray.length != secondIntArray.length) {
+            throw new IllegalArgumentException("Input arrays must be the same length.");
+        }
         for (int i = 0; i < firstIntArray.length; i++) {
             firstIntArray[i] *= secondIntArray[i];
         }
@@ -222,22 +239,22 @@ public class TwentyMethods {
     /**
      * 16) Принимает два массива интов, возвращает массив из елементов, которые не совпадают в массивах.
      */
-    public static int[] findNonMatchingElements(int[] ints1, int[] ints2) {
-        int maxLength = Math.max(ints1.length, ints2.length);
-        int[] result = new int[ints1.length + ints2.length];
+    public static int[] findNonMatchingElements(int[] firstIntArray, int[] secondIntArray) {
+        int maxLength = Math.max(firstIntArray.length, secondIntArray.length);
+        int[] result = new int[firstIntArray.length + secondIntArray.length];
         int resultIndex = 0;
         for (int i = 0; i < maxLength; i++) {
-            if (i < ints1.length && i < ints2.length) {
-                if (ints1[i] != ints2[i]) {
-                    result[resultIndex++] = ints1[i];
-                    result[resultIndex++] = ints2[i];
+            if (i < firstIntArray.length && i < secondIntArray.length) {
+                if (firstIntArray[i] != secondIntArray[i]) {
+                    result[resultIndex++] = firstIntArray[i];
+                    result[resultIndex++] = secondIntArray[i];
                 }
             }
-            if (i >= ints2.length) {
-                result[resultIndex++] = ints1[i];
+            if (i >= secondIntArray.length) {
+                result[resultIndex++] = firstIntArray[i];
             }
-            if (i >= ints1.length) {
-                result[resultIndex++] = ints2[i];
+            if (i >= firstIntArray.length) {
+                result[resultIndex++] = secondIntArray[i];
             }
         }
         return Arrays.copyOfRange(result, 0, resultIndex);
@@ -246,54 +263,53 @@ public class TwentyMethods {
     /**
      * 17) Принимает масив интов, возвращает его же, но в реверсном порядке.
      */
-    public static int[] reverseIntArray(int[] ints) {
-        for (int i = 0; i < ints.length / 2; i++) {
-            int temp = ints[i];
-            ints[i] = ints[ints.length - 1 - i];
-            ints[ints.length - 1 - i] = temp;
+    public static int[] reverseIntArray(int[] intArray) {
+        for (int i = 0; i < intArray.length / 2; i++) {
+            int temp = intArray[i];
+            intArray[i] = intArray[intArray.length - 1 - i];
+            intArray[intArray.length - 1 - i] = temp;
         }
-        return ints;
+        return intArray;
     }
 
     /**
      * 18) Принимает 3 инта: размер выходного массива, нижняя граница, верхняя граница.
      * Возвращает массив интов заданой длинный, который содержит случайные числа от нижней границы до верхней границы.
      */
-    public static int[] generateRandomArray(int size, int lowerBound, int upperBound) {
-        //TODO rewrite using exceptions (later)
+    public static int[] generateRandomArray(int size, int lowerBound, int upperBound) throws IllegalArgumentException {
         if (size <= 0) {
-            System.out.println("Negative or zero array size!!!");
-            return new int[]{};
+            throw new IllegalArgumentException("Size: " + size + ". Size of array can't be negative or zero!!!");
         }
         if (lowerBound > upperBound) {
-            System.out.println("lowerBound mast be less then upperBound!");
-            return new int[]{};
+            throw new IllegalArgumentException("lowerBound: " + lowerBound + " > " + "upperBound: " + upperBound + ". lowerBound mast be less then upperBound!");
         }
-        int[] ints = new int[size];
+        int[] intArray = new int[size];
         if (lowerBound == upperBound) {
-            Arrays.fill(ints, lowerBound);
-            return ints;
+            Arrays.fill(intArray, lowerBound);
+            return intArray;
         }
         for (int i = 0; i < size; i++) {
-            ints[i] = (int) (Math.random() * (upperBound - lowerBound + 1)) + lowerBound;
+            intArray[i] = (int) (Math.random() * (upperBound - lowerBound + 1)) + lowerBound;
         }
-        return ints;
+        return intArray;
     }
 
     /**
      * 19) Принимает 2 массива чаров, проверяет есть ли в 1 массиве такая же последовательность символов,
      * которую представляет собой второй массив. Возвращает булеан.
      */
-    public static boolean isCharSubArray(char[] chars1, char[] chars2) {
-        if (chars1.length == 0 || chars2.length == 0) {
-            System.out.println("Input arrays must not be empty.");
-            return false;
+    public static boolean isCharSubArray(char[] firstCharArray, char[] secondCharArray) throws IllegalArgumentException {
+        if (firstCharArray.length == 0) {
+            throw new IllegalArgumentException("First array must not be empty.");
         }
-        String string1 = String.valueOf(chars1);
-        String string2 = String.valueOf(chars2);
-        if (chars1.length >= chars2.length) {
-            return string1.contains(string2);
+        if (secondCharArray.length == 0) {
+            throw new IllegalArgumentException("Second array must not be empty.");
         }
-        return string2.contains(string1);
+        String firstString = String.valueOf(firstCharArray);
+        String secondString = String.valueOf(secondCharArray);
+        if (firstCharArray.length >= secondCharArray.length) {
+            return firstString.contains(secondString);
+        }
+        return secondString.contains(firstString);
     }
 }
