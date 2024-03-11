@@ -149,13 +149,17 @@ public class TwentyMethods {
      */
     public static boolean isLeapYear(int year) throws IllegalArgumentException {
         if (year < 1582) {
-            throw new IllegalArgumentException("The logic for calculating leap years was changed in 1582 and is not valid for smaller years.");
+            throw new IllegalArgumentException("Year: " + year + ". " +
+                    "The logic for calculating leap years was changed in 1582 and is not valid for smaller years." +
+                    " Input year more then 1582.");
         }
         if (year % 4 != 0) {
             return false;
-        } else if (year % 100 != 0) {
+        }
+        if (year % 100 != 0) {
             return true;
-        } else return year % 400 == 0;
+        }
+        return year % 400 == 0;
     }
 
     /**
@@ -295,8 +299,11 @@ public class TwentyMethods {
      * которую представляет собой второй массив. Возвращает булеан.
      */
     public static boolean isCharSubArray(char[] firstCharArray, char[] secondCharArray) throws IllegalArgumentException {
-        if (firstCharArray.length == 0 || secondCharArray.length == 0) {
-            throw new IllegalArgumentException("Input arrays must not be empty.");
+        if (firstCharArray.length == 0) {
+            throw new IllegalArgumentException("First array must not be empty.");
+        }
+        if (secondCharArray.length == 0) {
+            throw new IllegalArgumentException("Second array must not be empty.");
         }
         String firstString = String.valueOf(firstCharArray);
         String secondString = String.valueOf(secondCharArray);

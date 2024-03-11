@@ -499,7 +499,11 @@ class TwentyMethodsTest {
         // given
         int year = 456;
         // then
-        assertThrows(IllegalArgumentException.class, () -> isLeapYear(year));
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> isLeapYear(year));
+        assertEquals("Year: " + year + ". " +
+                "The logic for calculating leap years was changed in 1582 and is not valid for smaller years." +
+                " Input year more then 1582.", exception.getMessage());
+
     }
 
     @Test
@@ -855,7 +859,9 @@ class TwentyMethodsTest {
         char[] firstCharArray = {};
         char[] secondCharArray = {'c', 'd'};
         // then
-        assertThrows(IllegalArgumentException.class, () -> isCharSubArray(firstCharArray, secondCharArray));
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> isCharSubArray(firstCharArray, secondCharArray));
+        assertEquals("First array must not be empty.", exception.getMessage());
+
     }
 
     @Test
@@ -864,7 +870,8 @@ class TwentyMethodsTest {
         char[] firstCharArray = {'c', 'd'};
         char[] secondCharArray = {};
         // then
-        assertThrows(IllegalArgumentException.class, () -> isCharSubArray(firstCharArray, secondCharArray));
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> isCharSubArray(firstCharArray, secondCharArray));
+        assertEquals("Second array must not be empty.", exception.getMessage());
     }
 
     @Test
