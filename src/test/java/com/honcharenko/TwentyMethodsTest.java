@@ -420,7 +420,8 @@ class TwentyMethodsTest {
         // given
         int natural = -9;
         // then
-        assertThrows(IllegalArgumentException.class, () -> calculateFactorial(natural));
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> calculateFactorial(natural));
+        assertEquals("Input argument: " + natural + "must be natural number.", exception.getMessage());
     }
 
     @Test
@@ -448,7 +449,8 @@ class TwentyMethodsTest {
         // given
         int natural = -9;
         // then
-        assertThrows(IllegalArgumentException.class, () -> calculateFactorialRecursive(natural));
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> calculateFactorialRecursive(natural));
+        assertEquals("Input argument: " + natural + "must be natural number.", exception.getMessage());
     }
 
     @Test
@@ -568,6 +570,16 @@ class TwentyMethodsTest {
     }
 
     @Test
+    void givenIntArrayWithEqualElements_whenBubbleSortIntArrayInAscendingOrder_thenReturnSortedIntArray() {
+        // given
+        int[] intArray = {8, 8, 8, 8, 8};
+        // when
+        bubbleSortIntArrayInAscendingOrder(intArray);
+        // then
+        assertArrayEquals(new int[]{8, 8, 8, 8, 8}, intArray);
+    }
+
+    @Test
     void givenEmptyIntArray_whenBubbleSortIntArrayInAscendingOrder_thenReturnEmptyIntArray() {
         // given
         int[] intArray = {};
@@ -595,6 +607,16 @@ class TwentyMethodsTest {
         selectionSortIntArrayInAscendingOrder(intArray);
         // then
         assertArrayEquals(new int[]{1, 2, 5, 7, 8}, intArray);
+    }
+
+    @Test
+    void givenIntArrayWithEqualElements_whenSelectionSortIntArrayInAscendingOrder_thenReturnSortedIntArray() {
+        // given
+        int[] intArray = {8, 8, 8, 8, 8};
+        // when
+        selectionSortIntArrayInAscendingOrder(intArray);
+        // then
+        assertArrayEquals(new int[]{8, 8, 8, 8, 8}, intArray);
     }
 
     @Test
@@ -728,6 +750,16 @@ class TwentyMethodsTest {
     }
 
     @Test
+    void givenIntArrayWithEqualElements_whenReverseIntArray_thenReturnReversedArray() {
+        // given
+        int[] intArray = {5, 5, 5, 5, 5};
+        // when
+        int[] actual = reverseIntArray(intArray);
+        // then
+        assertArrayEquals(new int[]{5, 5, 5, 5, 5}, actual);
+    }
+
+    @Test
     void givenEmptyIntArray_whenReverseIntArray_thenReturnEmptyArray() {
         // given
         int[] intArray = {};
@@ -744,7 +776,8 @@ class TwentyMethodsTest {
         int lowerBound = 1;
         int upperBound = 10;
         // then
-        assertThrows(IllegalArgumentException.class, () -> generateRandomArray(size, lowerBound, upperBound));
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> generateRandomArray(size, lowerBound, upperBound));
+        assertEquals("Size: " + size + ". Size of array can't be negative or zero!!!", exception.getMessage());
     }
 
     @Test
@@ -754,7 +787,9 @@ class TwentyMethodsTest {
         int lowerBound = 10;
         int upperBound = 1;
         // then
-        assertThrows(IllegalArgumentException.class, () -> generateRandomArray(size, lowerBound, upperBound));
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> generateRandomArray(size, lowerBound, upperBound));
+        assertEquals("lowerBound: " + lowerBound + " > " + "upperBound: " + upperBound + ". lowerBound mast be less then upperBound!", exception.getMessage());
+
     }
 
     @Test

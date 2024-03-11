@@ -78,11 +78,11 @@ public class TwentyMethods {
      * 6) Принимает массив чаров, возвращает строку состоящую из символов массива.
      */
     public static String getStringFromCharArray(char[] charArray) {
-        String string = "";
+        StringBuilder string = new StringBuilder();
         for (char element : charArray) {
-            string += element;
+            string.append(element);
         }
-        return string;
+        return string.toString();
     }
 
     /**
@@ -121,7 +121,7 @@ public class TwentyMethods {
      */
     public static BigInteger calculateFactorial(int natural) throws IllegalArgumentException {
         if (natural < 0) {
-            throw new IllegalArgumentException("Input argument must be natural number.");
+            throw new IllegalArgumentException("Input argument: " + natural + "must be natural number.");
         }
         BigInteger factorial = BigInteger.ONE;
         for (int i = natural; i > 1; i--) {
@@ -135,7 +135,7 @@ public class TwentyMethods {
      */
     public static BigInteger calculateFactorialRecursive(int natural) throws IllegalArgumentException {
         if (natural < 0) {
-            throw new IllegalArgumentException("Input argument must be natural number.");
+            throw new IllegalArgumentException("Input argument: " + natural + "must be natural number.");
         }
         if (natural == 0) {
             return BigInteger.ONE;
@@ -274,10 +274,10 @@ public class TwentyMethods {
      */
     public static int[] generateRandomArray(int size, int lowerBound, int upperBound) throws IllegalArgumentException {
         if (size <= 0) {
-            throw new IllegalArgumentException("Negative or zero array size!!!");
+            throw new IllegalArgumentException("Size: " + size + ". Size of array can't be negative or zero!!!");
         }
         if (lowerBound > upperBound) {
-            throw new IllegalArgumentException("lowerBound mast be less then upperBound!");
+            throw new IllegalArgumentException("lowerBound: " + lowerBound + " > " + "upperBound: " + upperBound + ". lowerBound mast be less then upperBound!");
         }
         int[] intArray = new int[size];
         if (lowerBound == upperBound) {
