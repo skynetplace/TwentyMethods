@@ -15,7 +15,7 @@ class TwentyMethodsTest {
     @Test
     void givenCharArray_whenPrintCharArray_thenPrintToConsole() {
         // given
-        char[] charArray = {'e', 'b', '@', '&', '^'};
+        char[] charArray = {'e', 'b', '@', '&'};
         OutputStream outputStream = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outputStream));
         // when
