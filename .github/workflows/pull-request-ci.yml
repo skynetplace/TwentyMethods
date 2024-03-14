@@ -1,11 +1,9 @@
 name: Pull Request CI
 on:
-  push:
-    branches:
-      - '*'
+#  push:
+#    branches:
+#      - '*'
   pull_request:
-    types:
-      - closed
     branches:
       - main
 
