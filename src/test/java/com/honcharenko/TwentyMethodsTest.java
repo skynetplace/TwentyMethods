@@ -517,6 +517,16 @@ class TwentyMethodsTest {
     }
 
     @Test
+    void givenIntAsNotLeapYear1582_whenIsLeapYear_thenReturnFalse() {
+        // given
+        int year = 1582;
+        // when
+        boolean actual = isLeapYear(year);
+        // then
+        assertFalse(actual);
+    }
+
+    @Test
     void givenIntArrayAndIntDivider_whenFilterIntArrayMultiples_thenReturnExpectedString() {
         // given
         int[] intArray = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
