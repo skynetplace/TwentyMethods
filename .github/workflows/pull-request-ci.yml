@@ -23,4 +23,4 @@ jobs:
           cache: maven
 
       - name: Test with Maven
-        run: mvn clean test
+        run: mvn clean package pitest:mutationCoverage
